@@ -1,0 +1,9 @@
+ <template name="visualmainboard">
+				<div id="visualMainBoard">
+				{{#each_w_index deck.mainboard}}
+					{{#labelBranch id "mainboard"}}
+						{{> mainboardcard}}
+					{{/labelBranch}}
+				{{/each_w_index}}
+				</div>
+ </template>
