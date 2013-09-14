@@ -2,7 +2,9 @@
 	<div id="currentPick" class="inset_header span12">
 		<h3>Cards in pack: {{pack.cards.length}}</h3>
 		{{#each_w_index pack.cards}}
-			{{> draftcard}}
+			{{#labelBranch id "draftcard"}}
+				{{> draftcard}}
+			{{/labelBranch}}
 		{{/each_w_index}}
 	</div>
 </template>

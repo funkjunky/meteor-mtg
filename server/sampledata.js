@@ -117,5 +117,40 @@ Meteor.startup(function () {
 				draftinprogress: true,
 			});
 
+			Decks.insert({
+				name: "draftc1",
+				owner: "computer",
+				seat: 1,
+				mainboard: [],
+				sideboard: [],
+				pool: [],
+				draft: true,
+				draftid: 555,
+				draftinprogress: true,
+			});
+
+			Decks.insert({
+				name: "draftc2",
+				owner: "computer",
+				seat: 2,
+				mainboard: [],
+				sideboard: [],
+				pool: [],
+				draft: true,
+				draftid: 555,
+				draftinprogress: true,
+			});
+	
+			Decks.insert({
+				name: "draftc3",
+				owner: "computer",
+				seat: 3,
+				mainboard: [],
+				sideboard: [],
+				pool: [],
+				draft: true,
+				draftid: 555,
+				draftinprogress: true,
+			});
 		}
 });

@@ -7,7 +7,7 @@ if (Meteor.isServer) {
 		  return Decks.find({name: name});
 	  });
 	  Meteor.publish("Packs", function(draftid, seat) {
-		  return Packs.find({draftid: draftid, seat: seat});
+		  return Packs.find({draftid: draftid, seat: seat}, {sort: {pick: 1}});
 	  });
   });
 }

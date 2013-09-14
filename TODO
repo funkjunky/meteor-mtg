@@ -2,8 +2,8 @@ Meteor todo:
 ---
  - add drafting page
 		- going to the page should start the draft, if one isn't already started
-			- call the method on click in the draftcard event
-				- on return refresh the cards the user has
+			- add the additional packs, so it's 3 packs, and pass int he correct order
+				- ???
 			- round off the corners for the draft with bots
  - add a textual pool
  - use iron router to handle all the routing for our app. Using yeilds and such.

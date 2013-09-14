@@ -15,5 +15,5 @@
 
 	Template.currentdraftdeck.deck = _deck;
 	Template.currentdraftpick.pack = function() {
-		return currentPack;
+		return Packs.findOne({draftid: 555, seat: 0}, {sort: {pick: 1}});;
 	};

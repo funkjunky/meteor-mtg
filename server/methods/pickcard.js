@@ -4,7 +4,7 @@ Meteor.methods({
 				{draftid: draftid, seat: seat},
 				{sort: {pick: 1}});
 		var decku = Decks.findOne({draftid: draftid, owner: owner, seat: seat});
-		var draft = Drafts.findOne({draftid: draftid});
+		var draft = Drafts.findOne({id: draftid});
 
 		var pickdraftcard = function(pack, deck, index)
 		{
@@ -33,9 +33,9 @@ Meteor.methods({
 			if(draft.players[i] == "computer")			
 			{
 				var deckc = Decks.findOne({draftid: draftid, owner: "computer", seat: i});
-				while((packc = Packs.find(
+				while(packc = Packs.findOne(
 							{draftid: draftid, seat: i},
-							{sort: {pick: 1}})).count() >= 1) //while computer still has picks...
+							{sort: {pick: 1}})) //while computer still has picks...
 					pickdraftcard(packc, deckc, rand_int(packc.cards.length));
 			}
 		//////////////////
