@@ -2,7 +2,9 @@
 	<span data-id="{{_index}}" class="cardchoice {{id}}">
 		<h3 class="instanceCount"></h3>
 		{{> card}}<br />
-		<button class="addToMain">+1 Main <span class="x_main">(n)</span></button>
+		{{#if unlimitedPool}}
+		 <button class="addToMain">+1 Main <span class="x_main">(n)</span></button>
+		{{/if}}
 		<button class="moveToSide">Side -&gt;<span class="x_side">(n)</span></button>
 		<button class="removeFromMain">-1 Main</button>
 	</span>

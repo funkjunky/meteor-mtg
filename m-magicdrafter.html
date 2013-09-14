@@ -5,34 +5,6 @@
   <link rel="stylesheet" href="css/main.css">
  </head>
  <body>
-	 {{> thewholepage}}
+	 {{> drafter}}
  </body>
 
- <template name="thewholepage">
-	  <div>{{> header}}</div>
-	<div id="body">
-		<div id="addCardDiv" class="inset_header span6">
-		</div><br />
-		<div class="span6">
-			<label for="stacked">Stack Cards?</label><input type="checkbox" id="stacked">
-		</div>
-		<div id="deckModDiv" class="span12 inset_header">
-		 <div class="row"> <!-- necessary for grid system... :( -->
-			<div id="visualModDiv" class="span8">
-				<h2>Mainboard</h2>
-				{{> visualmainboard}}
-				<hr />
-				<h2>Side</h2>
-				{{> visualsideboard}}
-				<hr />
-				<h2>Pool</h2>
-				{{> visualpool}}
-			</div>
-			<div id="textBoard" class="span4">
-				{{> textboard}}
-			</div>
-		 </div>
-		 <button>Save</button>
-		</div>
-	</div>
- </template>

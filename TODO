@@ -1,4 +1,18 @@
 Meteor todo:
 ---
+ - add drafting page
+		- add another page for darfting and use that as the default.
+		- going to the page should start the draft, if one isn't already started
+			- setup everything to start the draft, in the collections
+				-new pack documents, with owners and draftid, and user to pass to
+				-new draft document, with users/owners in order, status [inprogress or done]
+			- add the meteor method for taking a card and passing a pack
+			- call the method on click in the draftcard event
+				- on return refresh the cards the user has
+			- round off the corners for the draft with bots
+ - add a textual pool
+ - use iron router to handle all the routing for our app. Using yeilds and such.
+ - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
+
 *future*
 	- consider, having the pool be a reference, so we can reuse "standard", etc.

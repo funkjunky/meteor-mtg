@@ -39,3 +39,11 @@
 {
 	content: "Add A Card To The Main Deck";
 }
+#currentPick:after
+{
+	content: "Current Draft Choice";
+}
+#draftdeck:after
+{
+	content: "Draft Picks So Far";
+}

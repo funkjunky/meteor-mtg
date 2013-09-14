@@ -13,9 +13,7 @@
 		return _nameToIndex[name];
 	};	
 
-	Template.textboard.deck = function() {
-		return Decks.findOne({name: "firstdeck"});
-	};
+	Template.textboard.deck = _deck;
 	Template.textboard.events = {
 		"change .textualMainBoard,.textualSideBoard": function(event) {
 			var $this = event.srcElement;

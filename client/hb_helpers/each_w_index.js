@@ -1,4 +1,7 @@
 Handlebars.registerHelper('each_w_index', function(context, options) {
+	if(!context)
+		return;
+
 	var ret = "";
 	for(var i = 0; i != context.length; ++i)
 	{

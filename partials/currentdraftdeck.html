@@ -1,0 +1,7 @@
+<template name="currentdraftdeck">
+	<div id="draftdeck" class="inset_header span12">
+		{{#each deck.pool}}
+			{{> card}}
+		{{/each}}
+	</div>
+</template>
