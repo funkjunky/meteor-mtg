@@ -1,6 +1,7 @@
 <template name="currentdraftpick">
 	<div id="currentPick" class="inset_header span12">
-		{{#each_w_index pack}}
+		<h3>Cards in pack: {{pack.cards.length}}</h3>
+		{{#each_w_index pack.cards}}
 			{{> draftcard}}
 		{{/each_w_index}}
 	</div>

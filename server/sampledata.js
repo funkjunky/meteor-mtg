@@ -5,10 +5,12 @@ Meteor.startup(function () {
 		Sets.remove({});
 		Pools.remove({});
 		Decks.remove({});
+		Drafts.remove({});
+		Packs.remove({});
 		console.log("FLUSHED ALL COLLECTION");
 	}
 	
-	// code to run on server at startup
+	// import the m14 set if it hasn't been imported yet.
 	if(Sets.find({name: "M14"}).count() <= 0)
 	{
 		//grab the m14 card data
@@ -26,6 +28,7 @@ Meteor.startup(function () {
 			cards: m14,
 		});
 
+		//create a deck to manipulate
 		Decks.insert({
 			name: "firstdeck",
 			mainboard: [],
@@ -35,6 +38,7 @@ Meteor.startup(function () {
 		});
 	}
 
+		//create a deck based on opening a single pack.
 		Decks.remove({name: "pack0"});
 		var pack = getpack("M14");
 
@@ -46,6 +50,7 @@ Meteor.startup(function () {
 			testpack: true,
 		});
 
+		//create a pool based on a sealed pool of m14
 		Decks.remove({name: "pool0"});
 		var pool = getpool(["M14", "M14", "M14", "M14", "M14", "M14",]);
 
@@ -58,4 +63,59 @@ Meteor.startup(function () {
 		});
 
 
+		//start a draft
+		if(Drafts.find().count() <= 0)
+		{
+			Drafts.insert({
+				id: 555,
+				status: "inprogress",
+				players: [
+					"jason",
+					"computer",
+					"computer",
+					"computer",
+				],
+			});
+			Packs.insert({
+				draftid: 555,
+				owner: "jason",
+				seat: 0,
+				cards: getpack("M14"),
+				pick: 0,
+			});
+			Packs.insert({
+				draftid: 555,
+				owner: "computer",
+				seat: 1,
+				cards: getpack("M14"),
+				pick: 0,
+			});
+			Packs.insert({
+				draftid: 555,
+				owner: "computer",
+				seat: 2,
+				cards: getpack("M14"),
+				pick: 0,
+			});
+			Packs.insert({
+				draftid: 555,
+				owner: "computer",
+				seat: 3,
+				cards: getpack("M14"),
+				pick: 0,
+			});
+
+			Decks.insert({
+				name: "draft0",
+				owner: "jason",
+				seat: 0,
+				mainboard: [],
+				sideboard: [],
+				pool: [],
+				draft: true,
+				draftid: 555,
+				draftinprogress: true,
+			});
+
+		}
 });
