@@ -75,6 +75,12 @@ Meteor.startup(function () {
 					"computer",
 					"computer",
 				],
+				packs: [
+					"M14",
+					"M14",
+					"M14",
+				],
+				openpack: 0,
 			});
 			Packs.insert({
 				draftid: 555,

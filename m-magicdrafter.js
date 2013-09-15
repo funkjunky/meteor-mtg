@@ -9,5 +9,8 @@ if (Meteor.isServer) {
 	  Meteor.publish("Packs", function(draftid, seat) {
 		  return Packs.find({draftid: draftid, seat: seat}, {sort: {pick: 1}});
 	  });
+	  Meteor.publish("Drafts", function(draftid) {
+		  return Drafts.find({id: draftid});
+	  });
   });
 }

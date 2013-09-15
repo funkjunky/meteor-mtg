@@ -1,6 +1,8 @@
 <template name="drafter">
 	<div>{{> header}}</div>
 	<div id="body">
+		<h3>Pack: {{draft.openpack}} {{draft.packs.[0]}}</h3>
+		<p>Players: {{#each draft.players}}{{this}}, {{/each}}</p>
 		{{> currentdraftpick}}
 		{{> currentdraftdeck}}
 	</div>

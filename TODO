@@ -1,14 +1,25 @@
 Meteor todo:
 ---
- - add drafting page
-		- going to the page should start the draft, if one isn't already started
-			- add the additional packs, so it's 3 packs, and pass int he correct order
-				- ???
-			- round off the corners for the draft with bots
- - add a textual pool
  - use iron router to handle all the routing for our app. Using yeilds and such.
+	- setup a route for deckbuilding, by deck name
+	- setup a route for draft, by draft id
+	- create a new page for setting up a sealed
+		- should create all the data, rather than sample data
+	- create a new page for setting up a draft with bots
+		- should create all the data, rather than sample data
+ - add users
+	- connect user to decks
+	- add sortof permissions with users and drafts
+ - add drafting between users
+	- add a new page draft lobby
+	(im thinking draft/<id>, and depending on the state of the draft, show different pages. so "lobby" would be lobby, "inprogress" would be the choose cards, and finished would just say the draft was finished, but later could show stats of the draft.)
+	-add two buttons to lobby. Start with x + {8-x} bots, or start, and start with x, where x is the number of players currently in lobby.
+ - add theros set as an option, and allow the option to choose for draft and sealed.
+ - add a textual pool [probably should be readonly if draft or sealed]
+ - make pretty and useable with css and such.... ready for release
+ - release!
+ - fix deck builder... not sure how...
  - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
- - show foils as foils
 
 *future*
 	- consider, having the pool be a reference, so we can reuse "standard", etc.

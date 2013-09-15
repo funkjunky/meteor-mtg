@@ -1,3 +1,3 @@
 	_deck = function() {
-		return Decks.findOne({name: "draft0"});
+		return Decks.findOne({name: "draftc3"});
 	};
