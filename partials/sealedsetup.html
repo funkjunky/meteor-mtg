@@ -1,0 +1,12 @@
+<template name="sealedsetup">
+	<h3>Sealed Setup</h3>
+	<form id="sealedForm">
+		<div id="packs" style="border: solid 1px black">
+			<p>Which packs?</p>
+			{{#loop num_of_packs}}
+					{{> choosepack}}
+			{{/loop}}
+		</div>
+		<input type="submit">Create Sealed</button>
+	</form>
+</template>

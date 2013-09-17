@@ -4,20 +4,22 @@ Template.mainboardcard.events = {
 		var $this = event.srcElement;
 		var cardindex = $($this).parent().data('id');
 		currentDeck.mainboard.push(currentDeck.mainboard[cardindex]);
-		Decks.update(_id, currentDeck);
+		Decks.update(currentDeck._id, currentDeck);
 	},
 	"click .moveToSide": function(event) {
 		var $this = event.srcElement;
 		var cardindex = $($this).parent().data('id');
+		console.log(cardindex);
+		console.log(currentDeck);
 		currentDeck.sideboard.push(currentDeck.mainboard[cardindex]);
 		currentDeck.mainboard.splice(cardindex, 1);	//remove from mainboard
-		Decks.update(_id, currentDeck);
+		Decks.update(currentDeck._id, currentDeck);
 	},
 	"click .removeFromMain": function(event) {
 		var $this = event.srcElement;
 		var cardindex = $($this).parent().data('id');
 		currentDeck.pool.push(currentDeck.mainboard[cardindex]);
 		currentDeck.mainboard.splice(cardindex, 1);	//remove from mainboard
-		Decks.update(_id, currentDeck);
+		Decks.update(currentDeck._id, currentDeck);
 	},
 };

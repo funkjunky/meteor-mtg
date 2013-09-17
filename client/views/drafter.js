@@ -1,23 +1,20 @@
-	currentPack = {};
-	Meteor.autorun(function() {
-		var a = Meteor.subscribe("Decks", "draftc3");
-		var b = Meteor.subscribe("Packs", 555, 0);
-		var c = Meteor.subscribe("Drafts", 555);
-		if(a.ready() && b.ready() && c.ready())
-		{
-			//This is the main object we update. It's the deck we are constructing.
-			currentDeck = Decks.findOne({name: "draftc3"});
-			currentPack = Packs.findOne({draftid: 555, seat: 0}, {sort: {pick: 1}});
-			//_id is used to update the mongoDB
-			//TODO: this is dumb, just use currentDeck._id everywhere >>;;
-			_id = currentDeck._id;
-		}
+drafterRoute = function() {
+	this.route('drafter', {
+		path: '/draft/:draftid',
+		waitOn: function() {
+			return [
+				Meteor.subscribe('Decks', 'draftc3'),
+				Meteor.subscribe('Packs', parseInt(this.params.draftid), 0),
+				Meteor.subscribe('Drafts', parseInt(this.params.draftid)),
+			];
+		},
+		data: function() {
+			var draftid = parseInt(this.params.draftid);
+			return {
+				pack: Packs.findOne({draftid: draftid, seat: 0}, {sort: {pick: 1}}),
+				draft: Drafts.findOne({id: draftid}),
+				deck: Decks.findOne({draftid: draftid}),
+			};
+		},
 	});
-
-	Template.currentdraftdeck.deck = _deck;
-	Template.currentdraftpick.pack = function() {
-		return Packs.findOne({draftid: 555, seat: 0}, {sort: {pick: 1}});
-	};
-	Template.drafter.draft = function() {
-		return Drafts.findOne({id: 555});
-	};
+};

@@ -1,5 +1,6 @@
 <template name="currentdraftdeck">
 	<div id="draftdeck" class="inset_header span12">
+	<h3>Cards in pool: {{deck.pool.length}}</h3>
 		{{#each deck.pool}}
 			<button>{{name}} {{#if foil}}*foil*{{/if}}</button>
 		{{/each}}

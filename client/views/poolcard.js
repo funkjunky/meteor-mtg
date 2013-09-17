@@ -6,7 +6,7 @@ Template.poolcard.events = {
 		currentDeck.mainboard.push(currentDeck.pool[cardindex]);
 		if(!currentDeck.unlimitedPool)
 			currentDeck.pool.splice(cardindex, 1);
-		Decks.update(_id, currentDeck);
+		Decks.update(currentDeck._id, currentDeck);
 	},
 	//addToSide
 	"click .addToSide": function(event, context) {
@@ -15,12 +15,12 @@ Template.poolcard.events = {
 		currentDeck.sideboard.push(currentDeck.pool[cardindex]);
 		if(!currentDeck.unlimitedPool)
 			currentDeck.pool.splice(cardindex, 1);
-		Decks.update(_id, currentDeck);
+		Decks.update(currentDeck._id, currentDeck);
 	},
 	"click .removeFromPool": function(event, context) {
 		var $this = event.srcElement;
 		var cardindex = $($this).parent().data('id');
 		currentDeck.pool.splice(cardindex, 1);
-		Decks.update(_id, currentDeck);
+		Decks.update(currentDeck._id, currentDeck);
 	},
 };

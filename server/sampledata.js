@@ -38,31 +38,6 @@ Meteor.startup(function () {
 		});
 	}
 
-		//create a deck based on opening a single pack.
-		Decks.remove({name: "pack0"});
-		var pack = getpack("M14");
-
-		Decks.insert({
-			name: "pack0",
-			mainboard: [],
-			sideboard: [],
-			pool: pack,
-			testpack: true,
-		});
-
-		//create a pool based on a sealed pool of m14
-		Decks.remove({name: "pool0"});
-		var pool = getpool(["M14", "M14", "M14", "M14", "M14", "M14",]);
-
-		Decks.insert({
-			name: "pool0",
-			mainboard: [],
-			sideboard: [],
-			pool: pool,
-			testpool: true,
-		});
-
-
 		//start a draft
 		if(Drafts.find().count() <= 0)
 		{

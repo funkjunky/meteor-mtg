@@ -13,7 +13,6 @@
 		return _nameToIndex[name];
 	};	
 
-	Template.textboard.deck = _deck;
 	Template.textboard.events = {
 		"change .textualMainBoard,.textualSideBoard": function(event) {
 			var $this = event.srcElement;
@@ -32,7 +31,7 @@
 				}
 		
 			currentDeck[$($this).data("board")] = newboard;
-			Decks.update(_id, currentDeck);
+			Decks.update(currentDeck._id, currentDeck);
 		},
 	};
 

@@ -1,10 +1,6 @@
 Meteor todo:
 ---
  - use iron router to handle all the routing for our app. Using yeilds and such.
-	- setup a route for deckbuilding, by deck name
-	- setup a route for draft, by draft id
-	- create a new page for setting up a sealed
-		- should create all the data, rather than sample data
 	- create a new page for setting up a draft with bots
 		- should create all the data, rather than sample data
  - add users
@@ -15,6 +11,7 @@ Meteor todo:
 	(im thinking draft/<id>, and depending on the state of the draft, show different pages. so "lobby" would be lobby, "inprogress" would be the choose cards, and finished would just say the draft was finished, but later could show stats of the draft.)
 	-add two buttons to lobby. Start with x + {8-x} bots, or start, and start with x, where x is the number of players currently in lobby.
  - add theros set as an option, and allow the option to choose for draft and sealed.
+ - turn all events to the function syntax instead.
  - add a textual pool [probably should be readonly if draft or sealed]
  - make pretty and useable with css and such.... ready for release
  - release!
