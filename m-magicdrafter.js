@@ -10,12 +10,16 @@ if(Meteor.isClient)
 		drafterRoute.apply(this);
 		builderRoute.apply(this);
 		sealedRoute.apply(this);
+		draftSetupRoute.apply(this);
 	});
 }
 if (Meteor.isServer) {
   Meteor.startup(function () {
 	  Meteor.publish("Decks", function(name) {
 		  return Decks.find({name: name});
+	  });
+	  Meteor.publish("DraftDeck", function(owner, draftid) {
+		  return Decks.find({owner: owner, draftid: draftid});
 	  });
 	  Meteor.publish("SetNames", function() {
 		  return Sets.find({}, {fields: {name:1}});

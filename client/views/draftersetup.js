@@ -1,6 +1,6 @@
-sealedRoute = function() {
-	this.route('sealedsetup', {
-		path: '/sealed',
+draftSetupRoute = function() {
+	this.route('draftsetup', {
+		path: '/draftsetup',
 		waitOn: function() {
 			return [
 				Meteor.subscribe('SetNames'),
@@ -9,27 +9,28 @@ sealedRoute = function() {
 		data: function() {
 			return {
 				sets: Sets.find().fetch(),
-				num_of_packs: 6,
+				num_of_packs: 3,
 			};
 		},
 	});
 };
 
-Template.sealedsetup.events = {
-	"submit #sealedForm": function(event) {
+Template.draftsetup.events = {
+	"submit #draftForm": function(event) {
 		var sets = $(event.srcElement).serializeArray();
 		for(var i=0; i!=sets.length; ++i)
 			sets[i] = sets[i].value;
-
 		
-		Meteor.call("create_sealed_deck", sets,
+		var num_of_bots = $("#bots").val();
+
+		Meteor.call("create_draft", sets, num_of_bots,
 				function(err, res) {
-					console.log('done meteor.method "create_sealed_deck"');
+					console.log("done meteor.method 'create_draft'");
 					console.log(err);
 					console.log(res);
 
 					if(!err && res)
-						Router.go('builder', {deckname: res.name});
+						Router.go('drafter', {draftid: res.draftid});
 				}
 		);
 

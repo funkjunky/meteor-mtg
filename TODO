@@ -1,8 +1,5 @@
 Meteor todo:
 ---
- - use iron router to handle all the routing for our app. Using yeilds and such.
-	- create a new page for setting up a draft with bots
-		- should create all the data, rather than sample data
  - add users
 	- connect user to decks
 	- add sortof permissions with users and drafts
@@ -12,6 +9,7 @@ Meteor todo:
 	-add two buttons to lobby. Start with x + {8-x} bots, or start, and start with x, where x is the number of players currently in lobby.
  - add theros set as an option, and allow the option to choose for draft and sealed.
  - turn all events to the function syntax instead.
+ - consider using "yeilds" form iron router, instead of partials from handlebars
  - add a textual pool [probably should be readonly if draft or sealed]
  - make pretty and useable with css and such.... ready for release
  - release!
