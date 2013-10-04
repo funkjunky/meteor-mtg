@@ -1,0 +1,14 @@
+<template name="active_draft">
+		<fieldset>
+			<legend>Active Drafts</legend>
+			<ul>
+				{{#each active_drafts}}
+				<li><a href="/draft/{{id}}">{{id}}: 
+						{{#each players}}
+							{{this}}, 
+						{{/each}}
+					</a></li>
+				{{/each}}
+			</ul>
+		</fieldset>
+</template>

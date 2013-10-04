@@ -2,12 +2,17 @@
 	<fieldset>
 		<legend>Please Leave Feedback</legend>
 		<form id="feedback">
-			<div>
-				broken <input type="radio" name="type" value="error" />
-				inconvinience <input type="radio" name="type" value="inconvinience" />
-				suggestion  <input type="radio" name="type" value="suggestion" />
+			<label class="radio inline">
+				<input type="radio" name="type" value="error" /> broken
+			</label>
+			<label class="radio inline">
+				<input type="radio" name="type" value="inconvinience" /> inconvinience 
+			</label>
+			<label class="radio inline">
+				<input type="radio" name="type" value="suggestion" /> suggestion
+			</label>
 			</div>
-			<textarea name="body"></textarea><br />
+			<textarea name="body" class="span12"></textarea><br />
 			<input type="submit" value="submit" />
 		</form>
 	</fieldset>

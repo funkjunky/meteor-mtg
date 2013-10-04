@@ -1,14 +1,18 @@
 <template name="draftlobby">
 <h3>Draft Lobby for id: {{draft.id}}</h3>
 <div data-draftid="{{draft.id}}">
-	<fieldset>
-		<legend>Players ({{draft.players.length}}/{{draft.numberOfSeats}})</legend>
-		<ul>
+	<div id="lobbyDiv" class="span8 inset_header">
+		<p>Packs: {{#each draft.packs}}[{{this}}]{{/each}}</p>
+		<p>({{draft.players.length}}/{{draft.numberOfSeats}}) Players</p>
+		<div>
 			{{#each draft.players}}
-				<li>{{this}}</li>
+				<p class="tablelike">{{this}}</p>
 			{{/each}}
-		</ul>
-	</fieldset>
+		</div>
+	</div>
+	<div id="chatroomDiv" class="span4 inset_header">
+		{{> chatroom}}
+	</div>
 	<div>
 		<button id="startwithbots" data-withbots="true">Start draft with {{subtraction draft.numberOfSeats draft.players.length}} bots</button>
 		<button id="startwithoutbots" data-withbots="false">Start draft with {{draft.players.length}} players (no bots)</button>

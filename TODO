@@ -1,14 +1,32 @@
 Meteor todo:
 ---
 //finish Thursday
- - make pretty and useable with css and such.... ready for release
+ - Make pretty
+	- drafter
+		- just make the image clickable [no siding or any features.]
+			-sort cards by color, then rarity, then cost
+		- **think of nice design!!**
+	- deck builder
+		- **think of nice design!!**
+	- add better spacing between sections on homepage.
+	- fix chat room spacing
+	- add borders were necessary, like draft lobby
+	- do draft lobby header better... try and figure out how to get the data into the :after header peice.
+	- homepage extras
+		- active drafts should be hidden, but if one exists, then show the section in red as a warning, so they know they need to get back in it asap.
+	- ensure ipad support. Could maybe use xcode/ios simulator to test?
+	- make sure if i highlight a box, then the entire box is clickable, like choosing drafts in lobby, and it being highliighed yellow, but its an a tag only.
 ////////
+ - if a draft has no players, because the last player left, then remove it.
+ - if a draft has been in lobby for longer than an hour, then remove it. [who was trigger this???]
  - make sure the deck builder is good enough to at least make a deck from a draft without the experience sucking hard.
  - export to .dec or whatever it is for playing
  - add theros set as an option, and allow the option to choose for draft and sealed.
  - release!
  - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
  - address any performance issues that may exist. As well as any recent feedback.
+ - event assignments should be in the onAfterRun of the router, so we don't add all events no matter the route.
+ - better security
  - consider using "yeilds" form iron router, instead of partials from handlebars
  - clean up code.
  - fix deck builder... not sure how...

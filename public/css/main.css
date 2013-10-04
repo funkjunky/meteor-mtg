@@ -28,7 +28,16 @@
 	padding: 3px 7px;
 	font-size: 12px;
 	border-radius: 4px 0 4px 0;
+}
 
+.tablelike
+{
+	border: solid 1px black;
+	margin: 1px;
+}
+.tablelike:hover
+{
+	background-color: #ffffcc;
 }
 
 #deckModDiv:after
@@ -39,11 +48,19 @@
 {
 	content: "Add A Card To The Main Deck";
 }
-#currentPick:after
+#draftLobbyDiv:after
 {
-	content: "Current Draft Choice";
+	content: "Open Draft Lobby";
 }
-#draftdeck:after
+#userDecksDiv:after
 {
-	content: "Draft Picks So Far";
+	content: "Your Decks";
+}
+#chatroomDiv:after
+{
+	content: "Chat Room";
+}
+#lobbyDiv:after
+{
+	content: "Draft Lobby";
 }
