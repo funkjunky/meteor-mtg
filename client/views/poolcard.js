@@ -1,4 +1,4 @@
-Template.poolcard.events = {
+Template.poolcard.events({
 	//addToMain
 	"click .addToMain": function(event, context) {
 		var $this = event.srcElement;
@@ -25,4 +25,4 @@ Template.poolcard.events = {
 		currentDeck.pool.splice(cardindex, 1);
 		Decks.update(currentDeck._id, currentDeck);
 	},
-};
+});

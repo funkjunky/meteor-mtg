@@ -1,4 +1,4 @@
-Template.mainboardcard.events = {
+Template.mainboardcard.events({
 	"click .addToMain": function(event) {
 		if(!currentDeck.unlimitedPool) return; //not allowed yet
 		var $this = event.srcElement;
@@ -22,4 +22,4 @@ Template.mainboardcard.events = {
 		currentDeck.mainboard.splice(cardindex, 1);	//remove from mainboard
 		Decks.update(currentDeck._id, currentDeck);
 	},
-};
+});

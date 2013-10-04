@@ -1,4 +1,4 @@
-Template.card.events = {
+Template.card.events({
 	"change .cardvisualtoggle": function(event) {
 		var $this = event.srcElement;
 		if($($this).prop('checked'))
@@ -10,4 +10,4 @@ Template.card.events = {
 			$($this).parent().parent().find(".cardtext").show();
 		}
 	},
-};
+});

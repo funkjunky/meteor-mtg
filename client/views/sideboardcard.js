@@ -1,4 +1,4 @@
-Template.sideboardcard.events = {
+Template.sideboardcard.events({
 	"click .addToSide": function(event) {
 		if(!currentDeck.unlimitedPool) return; //not allowed yet
 		var $this = event.srcElement;
@@ -20,4 +20,4 @@ Template.sideboardcard.events = {
 		currentDeck.sideboard.splice(cardindex, 1);	//remove from mainboard
 		Decks.update(currentDeck._id, currentDeck);
 	},
-};
+});

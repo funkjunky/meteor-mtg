@@ -16,7 +16,7 @@ draftSetupRoute = function() {
 	});
 };
 
-Template.draftsetup.events = {
+Template.draftsetup.events({
 	"submit #draftForm": function(event) {
 		var sets = $(event.srcElement).serializeArray();
 		for(var i=0; i!=sets.length; ++i)
@@ -37,4 +37,4 @@ Template.draftsetup.events = {
 
 		return false;
 	},
-};
+});

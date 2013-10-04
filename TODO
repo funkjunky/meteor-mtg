@@ -12,6 +12,7 @@ Meteor todo:
  - export to .dec or whatever it is for playing
  - add theros set as an option, and allow the option to choose for draft and sealed.
  - release!
+ - address any performance issues that may exist. As well as any recent feedback.
  - consider using "yeilds" form iron router, instead of partials from handlebars
  - clean up code.
  - fix deck builder... not sure how...

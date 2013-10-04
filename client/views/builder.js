@@ -30,6 +30,6 @@ builderRoute = function() {
 	});
 };
 
-	Template.builder.events = {
+	Template.builder.events({
 		"click #stacked": stacked_click,
-	};
+	});

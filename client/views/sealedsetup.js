@@ -15,7 +15,7 @@ sealedRoute = function() {
 	});
 };
 
-Template.sealedsetup.events = {
+Template.sealedsetup.events({
 	"submit #sealedForm": function(event) {
 		var sets = $(event.srcElement).serializeArray();
 		for(var i=0; i!=sets.length; ++i)
@@ -35,4 +35,4 @@ Template.sealedsetup.events = {
 
 		return false;
 	},
-};
+});
