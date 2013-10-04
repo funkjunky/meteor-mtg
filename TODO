@@ -1,10 +1,5 @@
 Meteor todo:
 ---
-//should take an hour or so
- - turn all events to the function syntax instead.
- - provide a read only mode for other peoples decks :)
- - add a textual pool [probably should be readonly if draft or sealed]
-///////
 //finish Thursday
  - make pretty and useable with css and such.... ready for release
 ////////
@@ -12,6 +7,7 @@ Meteor todo:
  - export to .dec or whatever it is for playing
  - add theros set as an option, and allow the option to choose for draft and sealed.
  - release!
+ - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
  - address any performance issues that may exist. As well as any recent feedback.
  - consider using "yeilds" form iron router, instead of partials from handlebars
  - clean up code.

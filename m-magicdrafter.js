@@ -29,6 +29,7 @@ if(Meteor.isClient)
 		sealedRoute.apply(this);
 		draftSetupRoute.apply(this);
 		draftLobbyRoute.apply(this);
+		deckRoute.apply(this);
 		viewLogsRoute.apply(this);
 		viewFeedbacksRoute.apply(this);
 	});

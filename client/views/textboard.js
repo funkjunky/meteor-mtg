@@ -14,7 +14,7 @@
 	};	
 
 	Template.textboard.events({
-		"change .textualMainBoard,.textualSideBoard": function(event) {
+		"change .textualMainBoard,.textualSideBoard,.textualPool": function(event) {
 			var $this = event.srcElement;
 			var newboard = [];
 

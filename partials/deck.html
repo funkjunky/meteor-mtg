@@ -1,0 +1,29 @@
+<template name="deck">
+ 	<div id="body">
+		<div id="deckmoddiv" class="span12 inset_header">
+		 <div class="row"> <!-- necessary for grid system... :( -->
+			<div id="visualmoddiv" class="span8">
+				<h2>mainboard</h2>
+				{{#with deck.mainboard}}
+					{{> board}}
+				{{/with}}
+				<hr />
+				<h2>side</h2>
+				{{#with deck.sideboard}}
+					{{> board}}
+				{{/with}}
+				<hr />
+				<h2>pool</h2>
+				{{#with deck.pool}}
+					{{> board}}
+				{{/with}}
+			</div>
+			<div id="textboard" class="span4">
+				<textarea rows="8" class="input-block-level textualMainBoard" readonly data-board="mainboard">{{deckToText deck.mainboard}}</textarea><br />
+				<textarea rows="8" class="input-block-level textualSideBoard" readonly data-board="sideboard">{{deckToText deck.sideboard}}</textarea><br />
+				<textarea rows="8" class="input-block-level textualPool" readonly data-board="pool">{{deckToText deck.pool}}</textarea><br />
+			</div>
+		 </div>
+		</div>
+	</div>
+</template>

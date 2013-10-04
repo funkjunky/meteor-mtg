@@ -14,8 +14,8 @@ builderRoute = function() {
 			currentDeck = Decks.findOne({name: this.params.deckname});
 			if(currentDeck.owner != Meteor.user().username)
 			{
-				alert("This isn't your deck! Get outta there!");
-				Router.go("home");
+				alert("This isn't your deck! Go to readonly mode!");
+				Router.go("/deck/"+this.params.deckname);
 			}
 			_deckname = this.params.deckname;
 			//TODO: try and phase this out or something

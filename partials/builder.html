@@ -1,28 +1,27 @@
  <template name="builder">
-	  <div>{{> header}}</div>
 	<div id="body">
-		<div id="addCardDiv" class="inset_header span6">
+		<div id="addcarddiv" class="inset_header span6">
 		</div><br />
 		<div class="span6">
-			<label for="stacked">Stack Cards?</label><input type="checkbox" id="stacked">
+			<label for="stacked">stack cards?</label><input type="checkbox" id="stacked">
 		</div>
-		<div id="deckModDiv" class="span12 inset_header">
+		<div id="deckmoddiv" class="span12 inset_header">
 		 <div class="row"> <!-- necessary for grid system... :( -->
-			<div id="visualModDiv" class="span8">
-				<h2>Mainboard</h2>
+			<div id="visualmoddiv" class="span8">
+				<h2>mainboard</h2>
 				{{> visualmainboard}}
 				<hr />
-				<h2>Side</h2>
+				<h2>side</h2>
 				{{> visualsideboard}}
 				<hr />
-				<h2>Pool</h2>
+				<h2>pool</h2>
 				{{> visualpool}}
 			</div>
-			<div id="textBoard" class="span4">
+			<div id="textboard" class="span4">
 				{{> textboard}}
 			</div>
 		 </div>
-		 <button>Save</button>
+		 <button>save</button>
 		</div>
 	</div>
  </template>
