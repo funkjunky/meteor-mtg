@@ -1,5 +1,14 @@
 <template name="layout">
+	<section class="header">
+		{{loginButtons}}
+	</section>
 	<section class="main">
 	{{yield}}
+	</section>
+	<section class="chat">
+	{{> chatroom}}
+	</section>
+	<section class="feedback">
+	{{> feedback}}
 	</section>
 </template>

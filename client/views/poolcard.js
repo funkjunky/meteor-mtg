@@ -4,6 +4,8 @@ Template.poolcard.events = {
 		var $this = event.srcElement;
 		var cardindex = $($this).parent().data('id');
 		currentDeck.mainboard.push(currentDeck.pool[cardindex]);
+		console.log(_deckname);
+		Meteor.call("deckLog", _deckname, currentDeck.pool[cardindex].name, "pool", "main");
 		if(!currentDeck.unlimitedPool)
 			currentDeck.pool.splice(cardindex, 1);
 		Decks.update(currentDeck._id, currentDeck);

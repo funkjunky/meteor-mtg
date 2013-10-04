@@ -1,18 +1,19 @@
 Meteor todo:
 ---
- - add users
-	- connect user to decks
-	- add sortof permissions with users and drafts
- - add drafting between users
-	- add a new page draft lobby
-	(im thinking draft/<id>, and depending on the state of the draft, show different pages. so "lobby" would be lobby, "inprogress" would be the choose cards, and finished would just say the draft was finished, but later could show stats of the draft.)
-	-add two buttons to lobby. Start with x + {8-x} bots, or start, and start with x, where x is the number of players currently in lobby.
- - add theros set as an option, and allow the option to choose for draft and sealed.
+//should take an hour or so
  - turn all events to the function syntax instead.
- - consider using "yeilds" form iron router, instead of partials from handlebars
+ - provide a read only mode for other peoples decks :)
  - add a textual pool [probably should be readonly if draft or sealed]
+///////
+//finish Thursday
  - make pretty and useable with css and such.... ready for release
+////////
+ - make sure the deck builder is good enough to at least make a deck from a draft without the experience sucking hard.
+ - export to .dec or whatever it is for playing
+ - add theros set as an option, and allow the option to choose for draft and sealed.
  - release!
+ - consider using "yeilds" form iron router, instead of partials from handlebars
+ - clean up code.
  - fix deck builder... not sure how...
  - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
 

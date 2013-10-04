@@ -28,6 +28,7 @@ Meteor.startup(function () {
 			cards: m14,
 		});
 
+		//TODO: remove this... only once I can make a proper standard, or limited or whatever deck.
 		//create a deck to manipulate
 		Decks.insert({
 			name: "firstdeck",
@@ -37,101 +38,4 @@ Meteor.startup(function () {
 			unlimitedPool: true,
 		});
 	}
-
-		//start a draft
-		if(Drafts.find().count() <= 0)
-		{
-			Drafts.insert({
-				id: 555,
-				status: "inprogress",
-				players: [
-					"jason",
-					"computer",
-					"computer",
-					"computer",
-				],
-				packs: [
-					"M14",
-					"M14",
-					"M14",
-				],
-				openpack: 0,
-			});
-			Packs.insert({
-				draftid: 555,
-				owner: "jason",
-				seat: 0,
-				cards: getpack("M14"),
-				pick: 0,
-			});
-			Packs.insert({
-				draftid: 555,
-				owner: "computer",
-				seat: 1,
-				cards: getpack("M14"),
-				pick: 0,
-			});
-			Packs.insert({
-				draftid: 555,
-				owner: "computer",
-				seat: 2,
-				cards: getpack("M14"),
-				pick: 0,
-			});
-			Packs.insert({
-				draftid: 555,
-				owner: "computer",
-				seat: 3,
-				cards: getpack("M14"),
-				pick: 0,
-			});
-
-			Decks.insert({
-				name: "draft0",
-				owner: "jason",
-				seat: 0,
-				mainboard: [],
-				sideboard: [],
-				pool: [],
-				draft: true,
-				draftid: 555,
-				draftinprogress: true,
-			});
-
-			Decks.insert({
-				name: "draftc1",
-				owner: "computer",
-				seat: 1,
-				mainboard: [],
-				sideboard: [],
-				pool: [],
-				draft: true,
-				draftid: 555,
-				draftinprogress: true,
-			});
-
-			Decks.insert({
-				name: "draftc2",
-				owner: "computer",
-				seat: 2,
-				mainboard: [],
-				sideboard: [],
-				pool: [],
-				draft: true,
-				draftid: 555,
-				draftinprogress: true,
-			});
-	
-			Decks.insert({
-				name: "draftc3",
-				owner: "computer",
-				seat: 3,
-				mainboard: [],
-				sideboard: [],
-				pool: [],
-				draft: true,
-				draftid: 555,
-				draftinprogress: true,
-			});
-		}
 });

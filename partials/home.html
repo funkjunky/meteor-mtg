@@ -1,0 +1,39 @@
+<template name="home">
+	<h3>Home!</h3>
+	{{#if currentUser}}
+		<button id="draftsetup">New Draft Lobby</button>
+		<button id="sealedsetup">New Sealed Deck</button> <br />
+		<fieldset>
+			<legend>Active Drafts</legend>
+			<ul>
+				{{#each active_drafts}}
+				<li><a href="/draft/{{id}}">{{id}}: 
+						{{#each players}}
+							{{this}}, 
+						{{/each}}
+					</a></li>
+				{{/each}}
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>Open Draft Lobbys</legend>
+			<ul>
+				{{#each open_drafts}}
+				<li><a href="/draftlobby/{{id}}">{{id}}: 
+						{{#each players}}
+							{{this}}, 
+						{{/each}}
+					</a></li>
+				{{/each}}
+			</ul>
+		</fieldset>
+		<fieldset>
+			<legend>Your Decks</legend>
+			<ul>
+				{{#each decks}}
+				<li><a href="builder/{{name}}">{{name}}</a></li>
+				{{/each}}
+			</ul>
+		</fieldset>
+	{{/if}}
+</template>

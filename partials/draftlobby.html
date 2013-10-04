@@ -1,0 +1,17 @@
+<template name="draftlobby">
+<h3>Draft Lobby for id: {{draft.id}}</h3>
+<div data-draftid="{{draft.id}}">
+	<fieldset>
+		<legend>Players ({{draft.players.length}}/{{draft.numberOfSeats}})</legend>
+		<ul>
+			{{#each draft.players}}
+				<li>{{this}}</li>
+			{{/each}}
+		</ul>
+	</fieldset>
+	<div>
+		<button id="startwithbots" data-withbots="true">Start draft with {{subtraction draft.numberOfSeats draft.players.length}} bots</button>
+		<button id="startwithoutbots" data-withbots="false">Start draft with {{draft.players.length}} players (no bots)</button>
+	</div>
+</div>
+</template>

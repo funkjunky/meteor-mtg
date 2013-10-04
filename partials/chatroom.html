@@ -1,0 +1,10 @@
+<template name="chatroom">
+	<h1>Chat Room!</h1>
+	<ul>{{#each chatmessages}}
+		<li>{{author}}({{time timestamp}}): {{message}}</li>
+	{{/each}}</ul>
+	<form id="sendMessage">
+		<textarea name="message" id="message"></textarea><br />
+		<input type="submit" value="Send" />
+	</form>
+</template>

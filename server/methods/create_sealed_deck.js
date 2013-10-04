@@ -6,12 +6,21 @@ Meteor.methods({
 		var name = "_sealed-" + date.getDate() + "_" + (date.getMonth()+1) + "_" + date.getFullYear() + "_" + implode(sets, "-") + "_" + Date.now();
 
 		console.log("creating sealed deck, name: " + name);
+		//TODO: all deck creation should be in one place, so I don't duplicate things like logging.
 		Decks.insert({
 			name: name,
+			owner: Meteor.user().username,
 			mainboard: [],
 			sideboard: [],
 			pool: pool,
 			sealed: true
+		});
+
+		Logs.insert({
+			id: "builder-"+Meteor.user().username+"-"+name,
+			deckname: name,
+			changes: [],
+			timestamp: Date.now(),
 		});
 
 		return {name: name};

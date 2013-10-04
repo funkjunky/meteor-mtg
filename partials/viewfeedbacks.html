@@ -1,0 +1,9 @@
+<template name="viewfeedbacks">
+	<h1>All Feedback</h1>
+	{{#each feedbacks}}
+		<div style="border: solid 1px black;">
+			<h3>{{type}} - {{timestamp}} <strong>{{user}}</strong></h3>
+			<p>{{body}}</p>
+		</div>
+	{{/each}}
+</template>
