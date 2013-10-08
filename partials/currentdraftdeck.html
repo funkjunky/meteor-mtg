@@ -2,7 +2,10 @@
 	<div id="draftdeck" class="inset_header span12">
 	<h3>Cards in pool: {{deck.pool.length}}</h3>
 		{{#each deck.pool}}
-			<button>{{name}} {{#if foil}}*foil*{{/if}}</button>
+			{{#if foil}}*foil*{{/if}}
+			<div style="display:inline-block" data-id="{{_index}}">
+				{{> card}}
+			</div>
 		{{/each}}
 	</div>
 </template>

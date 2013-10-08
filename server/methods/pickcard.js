@@ -1,6 +1,5 @@
 Meteor.methods({
 	pickcard: function(draftid, owner, seat, cardindex) {
-					 console.log("pickcard");
 		var draft = Drafts.findOne({id: draftid});
 
 		var pickdraftcard = function(pack, deck, index)
@@ -41,12 +40,12 @@ Meteor.methods({
 					{sort: {pick: 1}});
 			var decku = Decks.findOne(
 					{draftid: draftid, owner: owner, seat: seat});
-
-			//TODO: the name should be in a function everyone users
-			//Logging/////
 			var pool = [];
 			for(var i=0; i!=decku.pool.length; ++i)
 				pool.push(decku.pool[i].name);
+
+			//TODO: the name should be in a function everyone users
+			//Logging/////
 			Logs.update(
 				{id: "draft-"+draftid+"-seat_"+seat},
 				{$push: {pickstate: {
@@ -58,13 +57,14 @@ Meteor.methods({
 			);
 			////////////
 			//after logging, otherwise i dont have the card im picking [ie index is off]
+			//console.log("picking " + cardindex + ": " + packu.cards[cardindex].name);
 			pickdraftcard(packu, decku, cardindex);
 
 			//remove you from warning and quickpick list, if need be.
 			var index;
 			if((index = draft.warning.indexOf(owner)) != -1)
 			{
-				draft.warning.splice(index, 1);
+				Drafts.update({id: draft.id}, {$pull: {warning:owner}});
 				Logs.update({id: "draft-"+draftid}, {$push: {updates: {
 					eventsummary: "user removed from warning",
 					pick: packu.pick,
@@ -73,13 +73,14 @@ Meteor.methods({
 			}
 			if((index = draft.quickpick.indexOf(owner)) != -1)
 			{
-				draft.warning.splice(index, 1);
+				Drafts.update({id: draft.id}, {$pull: {quickpick:owner}});
 				Logs.update({id: "draft-"+draftid}, {$push: {updates: {
 					eventsummary: "user removed from quickpick",
 					pick: packu.pick,
 					user: owner,
 				}}});
 			}
+			Drafts.update({id: draft.id}, draft);
 		}
 
 		//check players for timeouts
@@ -90,6 +91,9 @@ Meteor.methods({
 			if(!packp)
 				continue;
 			var deckp = Decks.findOne({draftid: draftid, owner: draft.players[i], seat: i});
+			//don't do warning or quickpick stuff, if timer is disabled... just continue.
+			if(draft.timer_disabled)
+				continue;
 			//if their pack has timed out... or they are no longer considered active
 			//Note: You get one warning, then your packs are quickly passed =P
 			if(draft.quickpick.indexOf(draft.players[i]) != -1
@@ -119,8 +123,6 @@ Meteor.methods({
 
 				Drafts.update({id: draft.id}, draft);
 			}
-				
-
 		}
 		
 		//process computer picks

@@ -6,6 +6,9 @@ sealedRoute = function() {
 				Meteor.subscribe('SetNames'),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "sealed");
+		},
 		data: function() {
 			return {
 				sets: Sets.find().fetch(),

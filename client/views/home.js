@@ -9,6 +9,9 @@ homeRoute = function() {
 				Meteor.subscribe('OpenDrafts'),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "home");
+		},
 		data: function() {
 					console.log(Decks.find({owner: Meteor.user().username}).fetch());
 			return {

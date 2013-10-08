@@ -6,6 +6,9 @@ viewLogsRoute = function() {
 				Meteor.subscribe('AllLogs'),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "viewlogs");
+		},
 		data: function() {
 			return {
 				logs: Logs.find().fetch(),

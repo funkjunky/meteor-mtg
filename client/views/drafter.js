@@ -10,7 +10,11 @@ drafterRoute = function() {
 				Meteor.subscribe('Drafts', parseInt(this.params.draftid)),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "draft");
+		},
 		data: function() {
+			Session.set('draftid', parseInt(this.params.draftid));
 			//this should be in onAfterRun, but apparently it doesn't have subscriptions at that time.
 			if(!Decks.find({owner: Meteor.user().username, draftid: parseInt(this.params.draftid)}).count())
 			{
@@ -21,20 +25,34 @@ drafterRoute = function() {
 			var pack = Packs.findOne({draftid: draftid, owner: Meteor.user().username}, {sort: {pick: 1}});
 			var draftCursor = Drafts.find({id: draftid});
 			var draft = draftCursor.fetch()[0];
+			//TODO: use the deck var everywhere... wtf?
+			var deck = Decks.findOne({owner: Meteor.user().username, draftid: draftid});
+			console.log(deck.pool.length);
 
-			/*
-			//set timer for pick
-			Meteor.setInterval(function() {
-				//console.log(Session.get("timeleft"));
-				//console.log(draft.pickTimeout);
-				if(!pack)
-					return;
-				console.log("timeout: " + getTimeout(draft, pack));
-				Session.set("timeleft", parseInt(getTimeout(draft, pack)));
-				if(draft.quickpick.indexOf(Meteor.user().username) != -1 || Session.get("timeleft") < 0)
-					Meteor.call("pickcard", draftid, false);
-			}, 500);
-*/
+			//sorting by colours
+			var colours = {W:[],B:[],G:[],R:[],U:[],A:[],L:[]};
+			for(var i=0; i!=deck.pool.length; ++i)
+				colours[deck.pool[i].color].push(deck.pool[i]);
+			var newpool = [];
+			for(var k in colours)
+				for(var i=0; i!=colours[k].length; ++i)
+					newpool.push(colours[k][i]);
+			deck.pool = newpool;
+			if(!draft.timer_disabled)
+			{
+				//set timer for pick
+				Meteor.setInterval(function() {
+					//console.log(Session.get("timeleft"));
+					//console.log(draft.pickTimeout);
+					if(!pack)
+						return;
+					console.log("timeout: " + getTimeout(draft, pack));
+					Session.set("timeleft", parseInt(getTimeout(draft, pack)));
+					if(draft.quickpick.indexOf(Meteor.user().username) != -1 || Session.get("timeleft") < 0)
+						Meteor.call("pickcard", draftid, false);
+				}, 500);
+			}
+
 			var deckname = Decks.findOne({owner: Meteor.user().username, draftid: parseInt(this.params.draftid)}).name;
 
 			draftCursor.observeChanges({
@@ -48,11 +66,13 @@ drafterRoute = function() {
 				timeleft: Session.get("timeleft"),
 				pack: pack,
 				draft: draft,
-				deck: Decks.findOne({owner: Meteor.user().username, draftid: draftid}),
+				deck: deck, 
+					//Decks.findOne({owner: Meteor.user().username, draftid: draftid}),
 			};
 		},
 		onAfterRun: function() {
 			//fuck, i dont know why onAfterRun doesn't have access to the subscribed data...
+			/*
 			Meteor.setTimeout(function() {
 			//set timer for pick
 			Meteor.setInterval(function() {
@@ -77,6 +97,7 @@ drafterRoute = function() {
 				}
 			}, 500);
 		}, 1000);
+		*/
 		},
 	});
 };

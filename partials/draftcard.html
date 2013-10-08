@@ -1,5 +1,6 @@
 <template name="draftcard">
-	<span data-id="{{_index}}">
-		<button class="pickCard">{{name}} {{#if foil}}*foil*{{/if}}</button>
-	</span>
+{{#if foil}}*foil*{{/if}}
+	<div style="display:inline-block" data-id="{{_index}}">
+	{{> card}}
+	</div>
 </template>

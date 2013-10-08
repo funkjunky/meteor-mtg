@@ -1,8 +1,13 @@
 <template name="drafter">
 <div id="wholedraft" data-seat="{{pack.seat}}">
 	<div>{{> header}}</div>
-	<div id="body">
-		<h3>Pack: {{draft.openpack}} {{draft.packs.[0]}} - <span style='color: {{timeout_state draft}}'>Time Left: {{timeleft}}</span></h3>
+	<div id="body" class="span12">
+		<h3>
+			Pack: {{draft.openpack}} {{draft.packs.[0]}}
+			{{#not draft.timer_disabled}}
+				 - <span style='color: {{timeout_state draft}}'>Time Left: {{timeleft}}</span>
+			{{/not}}
+		</h3>
 		<p>Players: {{#each draft.players}}{{this}}, {{/each}}</p>
 		{{> currentdraftpick}}
 		{{> currentdraftdeck}}

@@ -1,29 +1,28 @@
 //TODO: implement this event for leaving a draft, only for draft routes... and using the draftid that we are currently on.
 Meteor.startup(function() {
 	$(window).bind("beforeunload", function() {
-		//console.log('wadsfghfj');
-		//Meteor.call("leaving_draft", 1379695018030, function(){});
+		if(Session.get('route') != "draft" && Session.get('route') != "draftlobby")
+			return null;
+
+		Meteor.call("leaving_draft", Session.get('draftid'), function(){});
 		return null;
+		//console.log("draftid: " + Session.get('draftid'));
 		//return "Are you sure you want to leave the lobby?";
 	});
 });
 draftLobbyRoute = function() {
 	this.route('draftlobby', {
 		path: '/draftlobby/:draftid',
-		onAfterRun: function() {
-			//TODO: This isn't working... the leave_draft call isn't being called.
-			/*
-			$(window).on('unload', function() {
-				Meteor.call("leaving_draft", this.params.draftid);
-			});
-			*/
-		},
 		waitOn: function() {
 			return [
 				Meteor.subscribe('Drafts', parseInt(this.params.draftid)),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "draftlobby");
+		},
 		data: function() {
+			Session.set('draftid', parseInt(this.params.draftid));
 			var user = Meteor.user();
 			var draftCursor = Drafts.find({id: parseInt(this.params.draftid)});
 			var draft = draftCursor.fetch()[0];

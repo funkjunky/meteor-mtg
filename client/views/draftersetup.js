@@ -6,6 +6,9 @@ draftSetupRoute = function() {
 				Meteor.subscribe('SetNames'),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "draftsetup");
+		},
 		data: function() {
 			console.log(Meteor.user());
 			return {
@@ -18,13 +21,15 @@ draftSetupRoute = function() {
 
 Template.draftsetup.events({
 	"submit #draftForm": function(event) {
+		event.preventDefault();
 		var sets = $(event.srcElement).serializeArray();
 		for(var i=0; i!=sets.length; ++i)
 			sets[i] = sets[i].value;
 
 		var numberOfSeats = $("#numberOfSeats").val();
+		var timer_disabled = $("#timer_disabled").prop('checked');
 		
-		Meteor.call("create_draft", sets, numberOfSeats,
+		Meteor.call("create_draft", sets, numberOfSeats, timer_disabled,
 				function(err, res) {
 					console.log("done meteor.method 'create_draft'");
 					console.log(err);

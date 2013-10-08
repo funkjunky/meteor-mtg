@@ -1,5 +1,5 @@
 Meteor.methods({
-	create_draft: function(sets, numberOfSeats) {
+	create_draft: function(sets, numberOfSeats, timer_disabled) {
 		var id = Date.now();
 		var players = [Meteor.user().username];
 		var packs = sets;
@@ -18,6 +18,7 @@ Meteor.methods({
 			warning: [],
 			quickpick: [],
 			withbots: false,
+			timer_disabled: timer_disabled,
 			numberOfSeats: numberOfSeats,
 			packs: packs,
 			openpack: 0,

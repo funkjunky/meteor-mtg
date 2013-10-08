@@ -1,9 +1,14 @@
 <template name="card">
-		<div class="cardimage" style="width:199px;height:285px;"><img src="/magicimgs/{{set_code}}/{{spacesToDashes name}}.jpg"></img></div>
-	<div class="cardtext" style="width:199px;height:285px;display:none">
+	<div class="cardimage" style="display:inline-block;width:199px;height:285px;"><img src="/magicimgs/{{set_code}}/{{spacesToDashes name}}.jpg"></img></div>
+	<div class="cardtext" style="display:inline-block;width:199px;height:285px;display:none">
 	{{name}} - {{manacost}}<br />
 	{{type}} - {{rarity}}<br />
 	{{ability}}
 	</div>
-	<div><input type="checkbox" id="toggle_{{id}}" class="cardvisualtoggle" /><label for="toggle_{{id}}">Text</label> - <span>{{rating}}</span></div>
+	<div>
+		<label style="display:inline-block;height:20px;font-size:14pt;" for="toggle_{{id}}">
+			<input type="checkbox" id="toggle_{{id}}" class="cardvisualtoggle" />
+			Text - <span>{{rating}}</span>
+		</label>
+	</div>
 </template>

@@ -9,6 +9,9 @@ builderRoute = function() {
 				Meteor.subscribe('Decks', this.params.deckname),
 			];
 		},
+		onAfterRun: function() {
+			Session.set("route", "builder");
+		},
 		data: function() {
 			//TODO: currentDecks should be phased out at some point...
 			currentDeck = Decks.findOne({name: this.params.deckname});

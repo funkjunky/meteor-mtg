@@ -1,11 +1,6 @@
 Meteor todo:
 ---
-//finish Thursday
  - Make pretty
-	- drafter
-		- just make the image clickable [no siding or any features.]
-			-sort cards by color, then rarity, then cost
-		- **think of nice design!!**
 	- deck builder
 		- **think of nice design!!**
 	- add better spacing between sections on homepage.
@@ -18,14 +13,18 @@ Meteor todo:
 	- make sure if i highlight a box, then the entire box is clickable, like choosing drafts in lobby, and it being highliighed yellow, but its an a tag only.
 ////////
  - if a draft has no players, because the last player left, then remove it.
+ - add a button to automatically do a draft with the newest sets with all bots and timer disabled.
  - if a draft has been in lobby for longer than an hour, then remove it. [who was trigger this???]
  - make sure the deck builder is good enough to at least make a deck from a draft without the experience sucking hard.
  - export to .dec or whatever it is for playing
  - add theros set as an option, and allow the option to choose for draft and sealed.
  - release!
+ - unique chat room per drafts
+ - hovering over image in draft should create the pointer cursor
  - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
  - address any performance issues that may exist. As well as any recent feedback.
  - event assignments should be in the onAfterRun of the router, so we don't add all events no matter the route.
+ - setting the route session variable should be done in m-m.js, instead of every route.
  - better security
  - consider using "yeilds" form iron router, instead of partials from handlebars
  - clean up code.
