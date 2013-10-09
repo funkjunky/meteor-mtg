@@ -1,12 +1,15 @@
 //TODO: implement this event for leaving a draft, only for draft routes... and using the draftid that we are currently on.
 Meteor.startup(function() {
 	$(window).bind("beforeunload", function() {
-		if(Session.get('route') != "draft" && Session.get('route') != "draftlobby")
+		//console.log("draftid: " + Session.get('draftid'));
+		//console.log("route: " + Session.get('route'));
+		if(Session.get('route') != "draftlobby")
 			return null;
+
+		console.log('draftid: ' + Session.get('draftid'));
 
 		Meteor.call("leaving_draft", Session.get('draftid'), function(){});
 		return null;
-		//console.log("draftid: " + Session.get('draftid'));
 		//return "Are you sure you want to leave the lobby?";
 	});
 });

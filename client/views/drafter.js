@@ -11,10 +11,10 @@ drafterRoute = function() {
 			];
 		},
 		onAfterRun: function() {
-			Session.set("route", "draft");
 		},
 		data: function() {
 			Session.set('draftid', parseInt(this.params.draftid));
+			Session.set("route", "draft");
 			//this should be in onAfterRun, but apparently it doesn't have subscriptions at that time.
 			if(!Decks.find({owner: Meteor.user().username, draftid: parseInt(this.params.draftid)}).count())
 			{
@@ -27,17 +27,20 @@ drafterRoute = function() {
 			var draft = draftCursor.fetch()[0];
 			//TODO: use the deck var everywhere... wtf?
 			var deck = Decks.findOne({owner: Meteor.user().username, draftid: draftid});
-			console.log(deck.pool.length);
 
 			//sorting by colours
-			var colours = {W:[],B:[],G:[],R:[],U:[],A:[],L:[]};
-			for(var i=0; i!=deck.pool.length; ++i)
-				colours[deck.pool[i].color].push(deck.pool[i]);
+			var colours = {W:[],B:[],G:[],R:[],U:[],A:[],L:[],MC:[]};
+			for(var i=0; i!=deck.sideboard.length; ++i)
+				if(deck.sideboard[i].color.length > 1)
+					colours["MC"].push(deck.sideboard[i]);
+				else
+					colours[deck.sideboard[i].color].push(deck.sideboard[i]);
 			var newpool = [];
 			for(var k in colours)
 				for(var i=0; i!=colours[k].length; ++i)
 					newpool.push(colours[k][i]);
-			deck.pool = newpool;
+			deck.sideboard = newpool;
+
 			if(!draft.timer_disabled)
 			{
 				//set timer for pick

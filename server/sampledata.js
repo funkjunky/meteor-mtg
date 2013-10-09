@@ -11,14 +11,16 @@ Meteor.startup(function () {
 	}
 	
 	// import the m14 set if it hasn't been imported yet.
-	if(Sets.find({name: "M14"}).count() <= 0)
+	if(Sets.find({name: "THS"}).count() <= 0)
 	{
 		//grab the m14 card data
+		var ths = EJSON.parse(Assets.getText('magicsets/THS.json'));
 		var m14 = EJSON.parse(Assets.getText('magicsets/M14.json'));
 		
 		//create the m14 set inthe mongodb
 		Sets.insert({
 			name: "M14",
+			release: "2013-06",
 			cards: m14,
 		});
 		
@@ -28,14 +30,20 @@ Meteor.startup(function () {
 			cards: m14,
 		});
 
-		//TODO: remove this... only once I can make a proper standard, or limited or whatever deck.
-		//create a deck to manipulate
-		Decks.insert({
-			name: "firstdeck",
-			mainboard: [],
-			sideboard: [],
-			pool: m14,
-			unlimitedPool: true,
+		for(var i=0; i!=ths.length; ++i)
+			ths[i].set_code = "THS";
+
+		//create the ths set inthe mongodb
+		Sets.insert({
+			name: "THS",
+			release: "2013-09",
+			cards: ths,
+		});
+		
+		//create the m14 pool in the mongoDB
+		Pools.insert({
+			name: "THS",
+			cards: ths,
 		});
 	}
 });

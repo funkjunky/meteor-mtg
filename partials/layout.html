@@ -1,11 +1,12 @@
 <template name="layout">
 	<section class="header">
 		{{loginButtons}}
+		<h1><a href="/">MTG Views</a></h1>
 	</section>
-	<section class="main">
+	<section class="main row-fluid">
 	{{yield}}
 	</section>
-	<section class="feedback span12">
+	<section class="feedback row">
 	{{> feedback}}
 	</section>
 </template>

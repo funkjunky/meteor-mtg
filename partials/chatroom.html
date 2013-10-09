@@ -1,13 +1,15 @@
 <template name="chatroom">
 	<h1>Chat Room!</h1>
-	<dl class="dl-horizontal">{{#each chatmessages}}
+	<dl class="dl-horizontal span12">{{#each chatmessages}}
 		<dt>{{author}}({{time timestamp}})</dt>
 		<dd>{{message}}</dd>
 	{{/each}}</dl>
-	<div class="nav">
-		<form class="navbar-form" id="sendMessage">
-			<input name="message" id="message" type="text">
-			<button type="submit" class="btn span2">Send</button>
-		</form>
+	<div class="navbar span12">
+		<div class="navbar-inner">
+			<form class="navbar-form pull-left" id="sendMessage">
+				<input type="text" name="message" id="message" class="span9">
+				<button type="submit" class="btn span2">Send</button>
+			</form>
+		</div>
 	</div>
 </template>

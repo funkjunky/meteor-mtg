@@ -12,6 +12,7 @@ Meteor.methods({
 		//Create the draft
 		Drafts.insert({
 			id: id,
+			timestamp: Date.now(),
 			status: "lobby",
 			players: players,
 			ready: [],

@@ -1,11 +1,13 @@
 <template name="sideboardcard">
-	<span data-id="{{_index}}" class="cardchoice {{id}}">
+	<div data-id="{{_index}}" class="cardchoice {{id}} {{color}}">
 		<h3 class="instanceCount"></h3>
-		{{> card}}<br />
-		{{#if unlimitedPool}}
-		 <button class="addToSide">+1 Side <span class="x_side">(n)</span></button>
-		{{/if}}
-		<button class="moveToMain">&lt;- Main <span class="x_main">(n)</span></button>
-		<button class="removeFromSide">-1 Side</button>
-	</span>
+		{{> card}}
+		<div class="builderbuttons">
+			{{#if unlimitedPool}}
+			 <button class="addToSide">+1 Side <span class="x_side">(n)</span></button>
+			{{/if}}
+			<button class="moveToMain">&lt;- Main <span class="x_main">(n)</span></button>
+			<button class="removeFromSide">-1 Side</button>
+		</div>
+	</div>
 </template>

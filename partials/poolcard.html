@@ -1,9 +1,11 @@
 <template name="poolcard">
-	<span data-id="{{_index}}" class="cardchoice {{id}}">
+	<div data-id="{{_index}}" class="cardchoice {{id}} {{color}}">
 		<h3 class="instanceCount"></h3>
-		{{> card}}<br />
-		<button class="addToMain">+1 Main <span class="x_main">(n)</span></button>
-		<button class="addToSide">+1 Side <span class="x_side">(n)</span></button>
-		<button class="removeFromPool">Remove</button>
-	</span>
+		{{> card}}
+		<div class="builderbuttons">
+			<button class="addToMain">+1 M <span class="x_main">(n)</span></button>
+			<button class="addToSide">+1 S <span class="x_side">(n)</span></button>
+			<button class="removeFromPool">R</button>
+		</div>
+	</div>
 </template>

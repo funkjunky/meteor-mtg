@@ -19,10 +19,7 @@ if(Meteor.isClient)
 		homeRoute.apply(this);
 		//can't really do anything until logged in.
 		if(!Meteor.user())
-		{
 			console.log("not logged in apparently");
-			return;
-		}
 
 		drafterRoute.apply(this);
 		builderRoute.apply(this);
@@ -43,7 +40,7 @@ if (Meteor.isServer) {
 		  return Decks.find({owner: owner, draftid: draftid});
 	  });
 	  Meteor.publish("SetNames", function() {
-		  return Sets.find({}, {fields: {name:1}});
+		  return Sets.find({}, {fields: {name:1}, sort: {release: -1}});
 	  });
 	  Meteor.publish("Sets", function(name) {
 		  return Sets.find({name: name});

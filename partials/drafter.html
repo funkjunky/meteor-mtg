@@ -9,6 +9,7 @@
 			{{/not}}
 		</h3>
 		<p>Players: {{#each draft.players}}{{this}}, {{/each}}</p>
+		<a href="/builder/{{deck.name}}">Draft Deck</a><br />
 		{{> currentdraftpick}}
 		{{> currentdraftdeck}}
 	</div>

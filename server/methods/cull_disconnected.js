@@ -12,9 +12,8 @@ Meteor.methods({
 					user: draft.players[i],
 				}}});
 				draft.players.splice(i, 1);
+				draft.status = "lobby";
 			}
-
-		draft.status = "lobby";
 
 		Drafts.update({id: draftid}, draft);
 	},

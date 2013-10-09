@@ -13,7 +13,7 @@ Meteor.methods({
 		if(draft.ready.length == draft.players.length)
 		{
 			draft.status = "inprogress";
-			console.log("INPROGRESS!");
+			Drafts.update({id: draftid}, {$set: {status: "inprogress"}});
 			Meteor.call("start_draft", draftid);
 		}
 	},

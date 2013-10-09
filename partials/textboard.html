@@ -1,5 +1,8 @@
  <template name="textboard">
+ 				<p>Mainboard - {{deck.mainboard.length}} cards</p>
 				<textarea rows="8" class="input-block-level textualMainBoard" data-board="mainboard">{{deckToText deck.mainboard}}</textarea><br />
+ 				<p>Sideboard - {{deck.sideboard.length}} cards</p>
 				<textarea rows="8" class="input-block-level textualSideBoard" data-board="sideboard">{{deckToText deck.sideboard}}</textarea><br />
+ 				<p>Pool - {{deck.pool.length}} cards</p>
 				<textarea rows="8" class="input-block-level textualPool" data-board="pool">{{deckToText deck.pool}}</textarea><br />
  </template>

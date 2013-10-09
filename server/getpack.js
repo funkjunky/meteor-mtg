@@ -37,8 +37,9 @@ getpack = function(set, random)
 	{
 		var random_card = set[rand_int(set.length)];
 
-		if(!taken[random_card.id] && (!allowed_rarity || --allowed_rarity[random_card.rarity] >= 0))
+		if(random_card.type.substr(0,"Basic Land".length) != "Basic Land" && !taken[random_card.id] && (!allowed_rarity || --allowed_rarity[random_card.rarity] >= 0))
 		{
+			console.log(random_card.name);
 			cards.push(random_card);
 			taken[random_card.id] = true;
 		}

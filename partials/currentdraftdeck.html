@@ -1,11 +1,20 @@
 <template name="currentdraftdeck">
 	<div id="draftdeck" class="inset_header span12">
-	<h3>Cards in pool: {{deck.pool.length}}</h3>
-		{{#each deck.pool}}
+	<h3>Card Picks: {{deck.sideboard.length}}</h3>
+		{{#each_w_index deck.sideboard}}
 			{{#if foil}}*foil*{{/if}}
 			<div style="display:inline-block" data-id="{{_index}}">
-				{{> card}}
+				{{#labelBranch id "draftsideboard"}}
+					{{> card}}
+				{{/labelBranch}}
 			</div>
-		{{/each}}
+		{{/each_w_index}}
+	<h3>Cards hidden in pool: {{deck.pool.length}}</h3>
+		{{#each_w_index deck.pool}}
+			{{#if foil}}*foil*{{/if}}
+			<div style="display:inline-block" data-id="{{_index}}">
+				<button class="poolbutton">{{name}}</button>
+			</div>
+		{{/each_w_index}}
 	</div>
 </template>

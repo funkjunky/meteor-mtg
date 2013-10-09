@@ -1,20 +1,49 @@
  <template name="builder">
 	<div id="body">
-		<div id="addcarddiv" class="inset_header span6">
-		</div><br />
-		<div class="span6">
-			<label for="stacked">stack cards?</label><input type="checkbox" id="stacked">
-		</div>
 		<div id="deckmoddiv" class="span12 inset_header">
 		 <div class="row"> <!-- necessary for grid system... :( -->
 			<div id="visualmoddiv" class="span8">
-				<h2>mainboard</h2>
+				<h2>Filters</h2>
+				<div class="builderfilters form-inline">
+					<p>(The keys corresponding to the colours are shortcuts to the filters)</p>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="U" />
+						<span>Blue</span>
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="B" />
+						<span>Black</span>
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="W" />
+						<span>White</span>
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="R" />
+						<span>Red</span>
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="G" />
+						<span>Green</span>
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="A" />
+						<span>Artifact</span>
+					</label>
+					<label class="checkbox">
+						<input type="checkbox" checked="checked" id="L" />
+						<span>Land</span>
+					</label>
+				</div>
+				<label for="stacked" class="checkbox">Stack Cards<input type="checkbox" id="stacked"></label>
+				<hr />
+				<h2>Mainboard - {{deck.mainboard.length}} cards</h2>
 				{{> visualmainboard}}
 				<hr />
-				<h2>side</h2>
+				<h2>Sideboard - {{deck.sideboard.length}} cards</h2>
 				{{> visualsideboard}}
 				<hr />
-				<h2>pool</h2>
+				<h2>Pool - {{deck.pool.length}}</h2>
 				{{> visualpool}}
 			</div>
 			<div id="textboard" class="span4">

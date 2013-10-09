@@ -1,27 +1,17 @@
 Meteor todo:
 ---
- - Make pretty
-	- deck builder
-		- **think of nice design!!**
-	- add better spacing between sections on homepage.
-	- fix chat room spacing
-	- add borders were necessary, like draft lobby
-	- do draft lobby header better... try and figure out how to get the data into the :after header peice.
-	- homepage extras
-		- active drafts should be hidden, but if one exists, then show the section in red as a warning, so they know they need to get back in it asap.
-	- ensure ipad support. Could maybe use xcode/ios simulator to test?
-	- make sure if i highlight a box, then the entire box is clickable, like choosing drafts in lobby, and it being highliighed yellow, but its an a tag only.
-////////
- - if a draft has no players, because the last player left, then remove it.
- - add a button to automatically do a draft with the newest sets with all bots and timer disabled.
- - if a draft has been in lobby for longer than an hour, then remove it. [who was trigger this???]
- - make sure the deck builder is good enough to at least make a deck from a draft without the experience sucking hard.
- - export to .dec or whatever it is for playing
- - add theros set as an option, and allow the option to choose for draft and sealed.
- - release!
+ - remove all console.logs
+ - release! Tomorrow. Then test the release again. Then post about it on FB and everywhere.
+ - add a button to draft pool cards to hide them as a button below the other cards. or some way to hide cards.
+ - add in the ability to see the other draft players decks
+ - back button doesnt leave lobby... i should make a bug list =P
  - unique chat room per drafts
+ - do draft lobby header better... try and figure out how to get the data into the :after header peice.
+ - the filters won't work on multicoloured cards... change it so the card has the class of every colour identity it has. hmmm or not... think of a better way. maybe an attribute that marks it as multicolor. i dunno... this is tricky...
+ - make the builder cards much more convinient to use.
  - hovering over image in draft should create the pointer cursor
  - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
+ - address the atrocious code I've created...
  - address any performance issues that may exist. As well as any recent feedback.
  - event assignments should be in the onAfterRun of the router, so we don't add all events no matter the route.
  - setting the route session variable should be done in m-m.js, instead of every route.

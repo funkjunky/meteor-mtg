@@ -1,16 +1,22 @@
 <template name="home">
 	<h3>Home!</h3>
-		<button id="sealedsetup">New Sealed Deck</button> <br />
 	{{#if currentUser}}
-		<div id="draftLobbyDiv" class="span8 inset_header">
+		{{#if active_draft_url}}
+		<strong style="display:block;font-size:12pt"><a  style="color: red;" href="{{active_draft_url}}">You have an already active draft counting down! Quick, Rejoin!</a></strong>
+		{{/if}}
+		<button id="sealedsetup">New Sealed Deck</button>
+		<button id="botdraft">New {{latest_set}} Draft With Bots</button>
+		<br />
+		<div id="draftLobbyDiv" class="span6 inset_header">
 			{{#each open_drafts}}
 			<div class="tablelike"><a href="/draftlobby/{{id}}">
 					{{#each packs}}[{{this}}]{{/each}} - {{implode players ", "}}</a></div>
 			{{/each}}
 			<hr />
 			<button id="draftsetup" style="position: absolute; right: 10px; bottom: 10px;">New Draft</button>
+			<button id="cleandrafts">Remove old drafts</button>
 		</div>
-		<div id="chatroomDiv" class="span4 inset_header">
+		<div id="chatroomDiv" class="span5 inset_header">
 			{{> chatroom}}
 		</div>
 		<div id="userDecksDiv" class="span12 inset_header">

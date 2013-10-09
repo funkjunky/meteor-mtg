@@ -9,5 +9,7 @@ Meteor.methods({
 				draft.players.splice(i, 1);
 
 		Drafts.update(draft._id, draft);
+		if(Drafts.findOne({_id: draft._id}).players.length <= 0)
+			Drafts.remove({_id: draft._id});
 	},
 });

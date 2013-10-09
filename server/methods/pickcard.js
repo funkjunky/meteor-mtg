@@ -7,7 +7,7 @@ Meteor.methods({
 			var card = pack.cards[index];
 
 			//add the card to the users deck
-			deck.pool.push(card);
+			deck.sideboard.push(card);
 			//remove the card from the pack
 			pack.cards.splice(index, 1);
 			//update the pick counter (necessary for order)
@@ -43,6 +43,8 @@ Meteor.methods({
 			var pool = [];
 			for(var i=0; i!=decku.pool.length; ++i)
 				pool.push(decku.pool[i].name);
+			for(var i=0; i!=decku.sideboard.length; ++i)
+				pool.push(decku.sideboard[i].name);
 
 			//TODO: the name should be in a function everyone users
 			//Logging/////
@@ -84,16 +86,16 @@ Meteor.methods({
 		}
 
 		//check players for timeouts
-		//TODO: disable if it's a solo-draft, also remove timer.
 		for(var i=0; i!=draft.players.length; ++i)
 		{
+			//don't do warning or quickpick stuff, if timer is disabled... just continue.
+			if(draft.timer_disabled)
+				continue;
+
 			var packp = Packs.findOne({draftid: draftid, seat: i});
 			if(!packp)
 				continue;
 			var deckp = Decks.findOne({draftid: draftid, owner: draft.players[i], seat: i});
-			//don't do warning or quickpick stuff, if timer is disabled... just continue.
-			if(draft.timer_disabled)
-				continue;
 			//if their pack has timed out... or they are no longer considered active
 			//Note: You get one warning, then your packs are quickly passed =P
 			if(draft.quickpick.indexOf(draft.players[i]) != -1
@@ -169,7 +171,6 @@ Meteor.methods({
 				}}});
 			}
 		}
-		console.log("done pickcard");
 	},
 });
 
