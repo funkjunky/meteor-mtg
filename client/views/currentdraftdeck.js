@@ -2,8 +2,8 @@ Template.currentdraftdeck.events({
 	"click .cardimage": function(event) {
 		var cardindex = $(event.srcElement).parent().parent().data('id');
 		var deck = Decks.findOne({draftid: _draftid, seat: $("#wholedraft").data('seat')});
+		deck.sideboard = sortcolours(deck.sideboard);
 
-		console.log(deck.sideboard[cardindex]);
 		deck.pool.push(deck.sideboard[cardindex]);
 		deck.sideboard.splice(cardindex, 1);
 		Decks.update(deck._id, deck);
@@ -12,7 +12,6 @@ Template.currentdraftdeck.events({
 		var cardindex = $(event.srcElement).parent().data('id');
 		var deck = Decks.findOne({draftid: _draftid, seat: $("#wholedraft").data('seat')});
 
-		console.log(deck.pool[cardindex]);
 		deck.sideboard.push(deck.pool[cardindex]);
 		deck.pool.splice(cardindex, 1);
 		Decks.update(deck._id, deck);

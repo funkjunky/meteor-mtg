@@ -18,8 +18,10 @@ if(Meteor.isClient)
 
 		homeRoute.apply(this);
 		//can't really do anything until logged in.
+		/*
 		if(!Meteor.user())
 			console.log("not logged in apparently");
+		*/
 
 		drafterRoute.apply(this);
 		builderRoute.apply(this);
