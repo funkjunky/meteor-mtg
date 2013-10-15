@@ -27,19 +27,7 @@ drafterRoute = function() {
 			var draft = draftCursor.fetch()[0];
 			//TODO: use the deck var everywhere... wtf?
 			var deck = Decks.findOne({owner: Meteor.user().username, draftid: draftid});
-
-			//sorting by colours
-			var colours = {W:[],B:[],G:[],R:[],U:[],A:[],L:[],MC:[]};
-			for(var i=0; i!=deck.sideboard.length; ++i)
-				if(deck.sideboard[i].color.length > 1)
-					colours["MC"].push(deck.sideboard[i]);
-				else
-					colours[deck.sideboard[i].color].push(deck.sideboard[i]);
-			var newpool = [];
-			for(var k in colours)
-				for(var i=0; i!=colours[k].length; ++i)
-					newpool.push(colours[k][i]);
-			deck.sideboard = newpool;
+			deck.sideboard = sortcolours(deck.sideboard);
 
 			if(!draft.timer_disabled)
 			{

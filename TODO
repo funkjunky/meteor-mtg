@@ -1,9 +1,11 @@
 Meteor todo:
 ---
- - start up a bug report thing somewhere!!
-	- add the bug that the sideboard card appears to not be sided crorectly during a draft.
-	- transition after finishing a draft isn't working.
-	- add google analytics
+*critical bug fixing*
+	- other bugs... fill em out
+	- look at feedback output from website and add bugs, including facebook and firefox?
+	- also add features, like stating that it works best in chrome, when not logged in tell the person to login and how easy the registration is.
+***
+
  - remove all console.logs
  - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
  - release! Tomorrow. Then test the release again. Then post about it on FB and everywhere.
