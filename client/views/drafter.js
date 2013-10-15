@@ -27,6 +27,9 @@ drafterRoute = function() {
 			var draft = draftCursor.fetch()[0];
 			//TODO: use the deck var everywhere... wtf?
 			var deck = Decks.findOne({owner: Meteor.user().username, draftid: draftid});
+			if(draft.status == "finished")
+				Router.go("/builder/"+deck.name);
+
 			deck.sideboard = sortcolours(deck.sideboard);
 
 			if(!draft.timer_disabled)
@@ -46,6 +49,7 @@ drafterRoute = function() {
 
 			var deckname = Decks.findOne({owner: Meteor.user().username, draftid: parseInt(this.params.draftid)}).name;
 
+			//TODO: may not be necessary because of the above check with status.
 			draftCursor.observeChanges({
 				changed: function(id, fields) {
 					if(fields.status == "finished")
