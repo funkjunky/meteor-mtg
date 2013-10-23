@@ -1,7 +1,6 @@
 Meteor todo:
 ---
- - have it so a deck is unique by a combination of the user and the deckname
- - allow people to rename their deck in the builder.
+ - add readonly feature to redmine
  - put all global collection variables into a "collections" directory.
 		- try and important one, then test it, because im afraid certain things might load before the collection loads.
 		- put publish functions into each one, using the server clause or whatever.

@@ -35,8 +35,10 @@ if(Meteor.isClient)
 }
 if (Meteor.isServer) {
   Meteor.startup(function () {
-	  Meteor.publish("Decks", function(name) {
-		  return Decks.find({name: name});
+	  Meteor.publish("Decks", function(_id) {
+		  return Decks.find({_id: _id});
+		  //TODO: this is for the readonl mode...
+		  //return Decks.find({owner: owner, name: name});
 	  });
 	  Meteor.publish("DraftDeck", function(owner, draftid) {
 		  return Decks.find({owner: owner, draftid: draftid});

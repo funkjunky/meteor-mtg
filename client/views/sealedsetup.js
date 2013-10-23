@@ -22,11 +22,10 @@ sealedRoute = function() {
 Template.sealedsetup.events({
 	"submit #sealedForm": function(event) {
 		var $this = event.target || event.srcElement;
-		var sets = $().serializeArray();
+		var sets = $($this).serializeArray();
 		for(var i=0; i!=sets.length; ++i)
 			sets[i] = sets[i].value;
 
-		
 		Meteor.call("create_sealed_deck", sets,
 				function(err, res) {
 					console.log('done meteor.method "create_sealed_deck"');
@@ -34,7 +33,7 @@ Template.sealedsetup.events({
 					console.log(res);
 
 					if(!err && res)
-						Router.go('builder', {deckname: res.name});
+						Router.go('builder', {_id: res._id});
 				}
 		);
 

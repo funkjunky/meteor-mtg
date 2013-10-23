@@ -1,10 +1,11 @@
 builderRoute = function() {
 	this.route('builder', {
-		path: '/builder/:deckname',
+		//TODO: this will be the path for the readonly version
+		//path: '/deck/:username/:deckname',
+		path: '/builder/:_id',
 		waitOn: function() {
-			_deckname = this.params.deckname;
 			return [
-				Meteor.subscribe('Decks', this.params.deckname),
+				Meteor.subscribe('Decks', this.params._id),
 			];
 		},
 		onAfterRun: function() {
@@ -13,11 +14,13 @@ builderRoute = function() {
 		},
 		data: function() {
 			//TODO: currentDecks should be phased out at some point...
-			currentDeck = Decks.findOne({name: this.params.deckname});
+			currentDeck = Decks.findOne({_id: this.params._id});
+			//TODO: do i actually need this? where? why?>
+			_deckname = currentDeck.name;
 			if(currentDeck.owner != Meteor.user().username)
 			{
 				alert("This isn't your deck! Go to readonly mode!");
-				Router.go("/deck/"+this.params.deckname);
+				Router.go("/deck/"+currentDeck.owner+"/"+currentDeck.name);
 			}
 			document.title = "MTG Drafter - " + currentDeck.name;
 
@@ -87,5 +90,10 @@ Template.builder.created = function() {
 				$("."+colour).show();
 			else
 				$("."+colour).hide();
+		},
+		"change #deckname": function(event) {
+			var $this = event.target || event.srcElement;
+			currentDeck.name = $($this).val();
+			Decks.update(currentDeck._id, currentDeck);
 		},
 	});

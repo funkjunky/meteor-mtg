@@ -3,11 +3,14 @@ Meteor.methods({
 		//create the sealed deck, save it as sealed-day_month_year-set-set-...-timestamp
 		var pool = getpool(sets);
 		var date = new Date();
-		var name = "_sealed-" + date.getDate() + "_" + (date.getMonth()+1) + "_" + date.getFullYear() + "_" + implode(sets, "-") + "_" + Date.now();
+		var name = "sealed_" + implode(sets, "-") + "_" + date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear();
+		var name_count;
+		if((name_count = Decks.find({name: new RegExp(name)}).count()) > 0)
+			name += "_" + (name_count+1);
 
 		console.log("creating sealed deck, name: " + name);
 		//TODO: all deck creation should be in one place, so I don't duplicate things like logging.
-		Decks.insert({
+		var deck__id = Decks.insert({
 			name: name,
 			owner: Meteor.user().username,
 			mainboard: [],
@@ -23,7 +26,7 @@ Meteor.methods({
 			timestamp: Date.now(),
 		});
 
-		return {name: name};
+		return {_id: deck__id};
 	},
 });
 
