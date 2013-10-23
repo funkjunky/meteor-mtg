@@ -9,6 +9,7 @@ builderRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "builder");
+			document.title = "MTG Drafter - Deck Builder";
 		},
 		data: function() {
 			//TODO: currentDecks should be phased out at some point...
@@ -18,6 +19,8 @@ builderRoute = function() {
 				alert("This isn't your deck! Go to readonly mode!");
 				Router.go("/deck/"+this.params.deckname);
 			}
+			document.title = "MTG Drafter - " + currentDeck.name;
+
 			//TODO: try and phase this out or something
 			//This is a map, so we can get the pool's array index from a card name.
 			//Necessary when turning getting cards using the text board from the pool.

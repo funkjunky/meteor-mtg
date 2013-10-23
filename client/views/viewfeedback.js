@@ -8,6 +8,7 @@ viewFeedbacksRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "viewfeedbacks");
+			document.title = "MTG Drafter - View Feedback";
 		},
 		data: function() {
 			return {

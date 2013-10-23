@@ -1,10 +1,12 @@
 Meteor todo:
 ---
- - read unofficial meteor FAQ and get more TODO items
- - add everything new as bugs or features to redmine
- - if there are important bugs, then do them
- - merge to master and dev, then redeploy to meteor
- - start a new version number, and add the features to this TODO 
+ - have it so a deck is unique by a combination of the user and the deckname
+ - allow people to rename their deck in the builder.
+ - put all global collection variables into a "collections" directory.
+		- try and important one, then test it, because im afraid certain things might load before the collection loads.
+		- put publish functions into each one, using the server clause or whatever.
+ - jquery iand maybe bootstrap stuff should be loaded like client/lib
+ - there should be almost nothing in main.js... also rename main.js...
  - add a button to draft pool cards to hide them as a button below the other cards. or some way to hide cards.
  - add in the ability to see the other draft players decks
  - back button doesnt leave lobby... i should make a bug list =P

@@ -8,6 +8,7 @@ viewLogsRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "viewlogs");
+			document.title = "MTG Drafter - View Logs";
 		},
 		data: function() {
 			return {

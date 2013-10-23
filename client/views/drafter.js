@@ -11,6 +11,7 @@ drafterRoute = function() {
 			];
 		},
 		onAfterRun: function() {
+			document.title = "MTG Drafter - Drafting";
 		},
 		data: function() {
 			Session.set('draftid', parseInt(this.params.draftid));

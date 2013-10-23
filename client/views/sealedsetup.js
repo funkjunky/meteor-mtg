@@ -8,6 +8,7 @@ sealedRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "sealed");
+			document.title = "MTG Drafter - Sealed Setup";
 		},
 		data: function() {
 			return {
