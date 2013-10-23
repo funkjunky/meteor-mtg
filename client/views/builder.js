@@ -77,8 +77,9 @@ Template.builder.created = function() {
 	Template.builder.events({
 		"click #stacked": stacked_click,
 		"change .builderfilters input": function(event) {
-			var $this = $(event.srcElement);
-			var colour = event.srcElement.id;
+			var $this = event.target || event.srcElement;
+			var colour = $this.id;
+			$this = $($this);
 			if($this.prop('checked'))
 				$("."+colour).show();
 			else

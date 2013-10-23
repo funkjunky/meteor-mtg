@@ -57,7 +57,6 @@ if (Meteor.isServer) {
 		  return Drafts.find({players: username}); 
 	  });
 	  Meteor.publish("PlayerDecks", function(username) {
-		  console.log(Decks.find({owner: username, draftinprogress: {$ne: true}}).count());
 		  return Decks.find({owner: username, draftinprogress: {$ne: true}});
 	  });
 	  Meteor.publish("OpenDrafts", function() {
@@ -73,8 +72,6 @@ if (Meteor.isServer) {
 	  Meteor.publish("LatestChatMessages", function() {
 		  var minutes = 60;
 		  var maxMessages = 800;
-
-			//console.log(ChatMessages.find({timestamp: {$gt: Date.now() - (minutes * 60 * 1000)}}).fetch());
 
 			return ChatMessages.find({timestamp: {$gt: Date.now() - (minutes * 60 * 1000)}});
 	  });

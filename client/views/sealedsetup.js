@@ -20,7 +20,8 @@ sealedRoute = function() {
 
 Template.sealedsetup.events({
 	"submit #sealedForm": function(event) {
-		var sets = $(event.srcElement).serializeArray();
+		var $this = event.target || event.srcElement;
+		var sets = $().serializeArray();
 		for(var i=0; i!=sets.length; ++i)
 			sets[i] = sets[i].value;
 

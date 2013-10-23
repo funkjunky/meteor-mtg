@@ -10,7 +10,6 @@ draftSetupRoute = function() {
 			Session.set("route", "draftsetup");
 		},
 		data: function() {
-			console.log(Meteor.user());
 			return {
 				sets: Sets.find().fetch(),
 				num_of_packs: 3,
@@ -22,7 +21,8 @@ draftSetupRoute = function() {
 Template.draftsetup.events({
 	"submit #draftForm": function(event) {
 		event.preventDefault();
-		var sets = $(event.srcElement).serializeArray();
+		$this = event.target || event.srcElement;
+		var sets = $($this).serializeArray();
 		for(var i=0; i!=sets.length; ++i)
 			sets[i] = sets[i].value;
 
