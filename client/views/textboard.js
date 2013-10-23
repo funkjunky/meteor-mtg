@@ -15,7 +15,7 @@
 
 	Template.textboard.events({
 		"change .textualMainBoard,.textualSideBoard,.textualPool": function(event) {
-			var $this = event.srcElement;
+			var $this = event.target || event.srcElement;
 			var newboard = [];
 
 			//parse the text

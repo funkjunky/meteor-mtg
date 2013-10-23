@@ -53,8 +53,9 @@ draftLobbyRoute = function() {
 
 Template.draftlobby.events({
 	"click #startwithbots, click #startwithoutbots": function(event) {
-		var withbots = $(event.srcElement).data('withbots');
-		var draftid = $(event.srcElement).parent().parent().data('draftid');
+		var $this = event.target || event.srcElement;
+		var withbots = $($this).data('withbots');
+		var draftid = $($this).parent().parent().data('draftid');
 
 		Meteor.call("try_draft", draftid, withbots,
 			function(err, res) {

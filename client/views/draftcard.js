@@ -1,10 +1,9 @@
 Template.draftcard.events ({
 	"click .cardimage": function(event) {
 		console.log("draftcard clicked. I'll call meteor.methods now!");
-		var $this = event.srcElement;
+		var $this = event.target || event.srcElement;
 		//TODO: get the seat somewhere else...
 		var seat = $("#wholedraft").data('seat');
-		console.log("seat: " + seat);
 		Meteor.call("pickcard", _draftid, Meteor.user().username, seat, $($this).parent().parent().data('id'),
 				function(err, res) {
 					console.log('done meteor.method:');

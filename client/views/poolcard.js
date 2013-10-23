@@ -4,7 +4,7 @@ Template.poolcard.events({
 	"click .cardimage": toMainboard,
 	//addToSide
 	"click .addToSide": function(event, context) {
-		var $this = event.srcElement;
+		var $this = event.target || event.srcElement;
 		var cardindex = $($this).parent().parent().data('id');
 		currentDeck.sideboard.push(currentDeck.pool[cardindex]);
 		if(!currentDeck.unlimitedPool)
@@ -12,7 +12,7 @@ Template.poolcard.events({
 		Decks.update(currentDeck._id, currentDeck);
 	},
 	"click .removeFromPool": function(event, context) {
-		var $this = event.srcElement;
+		var $this = event.target || event.srcElement;
 		var cardindex = $($this).parent().parent().data('id');
 		currentDeck.pool.splice(cardindex, 1);
 		Decks.update(currentDeck._id, currentDeck);
@@ -20,7 +20,7 @@ Template.poolcard.events({
 });
 
 function toMainboard(event, context) {
-		var $this = event.srcElement;
+		var $this = event.target || event.srcElement;
 		var cardindex = $($this).parent().parent().data('id');
 		if(!currentDeck.pool[cardindex])
 			return;
