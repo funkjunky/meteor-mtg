@@ -5,7 +5,6 @@ Meteor.methods({
 			user = user.username;
 		else
 			user = null;
-console.log("feedback reported");
 
 		Feedbacks.insert({
 			id: Date.now(),

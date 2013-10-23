@@ -1,6 +1,6 @@
 Template.card.events({
 	"change .cardvisualtoggle": function(event) {
-		var $this = event.srcElement;
+		var $this = event.target || event.srcElement;
 		if(!$($this).prop('checked'))
 		{
 			$($this).parent().parent().parent().find(".cardtext").hide();

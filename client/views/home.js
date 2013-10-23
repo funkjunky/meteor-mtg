@@ -44,7 +44,7 @@ Template.home.events({
 	"click #botdraft": function() {
 		Meteor.call("create_draft", ['THS', 'THS', 'THS'], 8, true, function(err, res) {
 			var draftid = res.draftid;
-			console.log("botdraft");
+			console.log("create_draft with bots");
 			console.log(err);
 			console.log(res);
 			Meteor.call("try_draft", draftid, true, function(err, res) {

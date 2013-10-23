@@ -6,8 +6,6 @@ Meteor.startup(function() {
 		if(Session.get('route') != "draftlobby")
 			return null;
 
-		console.log('draftid: ' + Session.get('draftid'));
-
 		Meteor.call("leaving_draft", Session.get('draftid'), function(){});
 		return null;
 		//return "Are you sure you want to leave the lobby?";
@@ -53,8 +51,9 @@ draftLobbyRoute = function() {
 
 Template.draftlobby.events({
 	"click #startwithbots, click #startwithoutbots": function(event) {
-		var withbots = $(event.srcElement).data('withbots');
-		var draftid = $(event.srcElement).parent().parent().data('draftid');
+		var $this = event.target || event.srcElement;
+		var withbots = $($this).data('withbots');
+		var draftid = $($this).parent().parent().data('draftid');
 
 		Meteor.call("try_draft", draftid, withbots,
 			function(err, res) {
