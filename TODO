@@ -1,29 +1,27 @@
 Meteor todo:
 ---
- - put all global collection variables into a "collections" directory.
-		- try and important one, then test it, because im afraid certain things might load before the collection loads.
-		- put publish functions into each one, using the server clause or whatever.
- - jquery iand maybe bootstrap stuff should be loaded like client/lib
- - there should be almost nothing in main.js... also rename main.js...
  - add a button to draft pool cards to hide them as a button below the other cards. or some way to hide cards.
  - add in the ability to see the other draft players decks
- - back button doesnt leave lobby... i should make a bug list =P
- - unique chat room per drafts
- - do draft lobby header better... try and figure out how to get the data into the :after header peice.
- - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
+ - back button doesnt leave lobby...
  - the filters won't work on multicoloured cards... change it so the card has the class of every colour identity it has. hmmm or not... think of a better way. maybe an attribute that marks it as multicolor. i dunno... this is tricky...
- - make the builder cards much more convinient to use.
  - hovering over image in draft should create the pointer cursor
- - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
+ - Release! But still don't mention the drafter.
  - address the atrocious code I've created...
- - address any performance issues that may exist. As well as any recent feedback.
+	 - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
+		-remove all the things in global.js
+		- try and ensure we dont use anymore global variables, collections could potentially be the exception.
+	 - consider using "yeilds" form iron router, instead of partials from handlebars
+ - Make the builder much more convinient somehow.
+	- maybe have a visual layout of the cards, and the location of each card is saved?
+ - unique chat room per drafts
  - event assignments should be in the onAfterRun of the router, so we don't add all events no matter the route.
  - setting the route session variable should be done in m-m.js, instead of every route.
+ - address any performance issues that may exist. As well as any recent feedback.
  - better security
- - consider using "yeilds" form iron router, instead of partials from handlebars
- - clean up code.
- - fix deck builder... not sure how...
- - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
+
+ - Get drafter on heroku
+	 - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
+	 - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
 
 *future*
 	- consider, having the pool be a reference, so we can reuse "standard", etc.
