@@ -1,7 +1,5 @@
 Meteor.methods({
 	pickcard: function(draftid, owner, seat, cardindex) {
-					 console.log("params!!!");
-					 console.log(draftid + " - " + owner + " - " + seat + " - " + cardindex);
 		var draft = Drafts.findOne({id: draftid});
 
 		var pickdraftcard = function(pack, deck, index)
@@ -50,7 +48,6 @@ Meteor.methods({
 
 			//TODO: the name should be in a function everyone users
 			//Logging/////
-			console.log(cardindex + "<-index ~ length: " + packu.length);
 			Logs.update(
 				{id: "draft-"+draftid+"-seat_"+seat},
 				{$push: {pickstate: {

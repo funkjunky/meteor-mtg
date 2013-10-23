@@ -9,8 +9,6 @@ Template.mainboardcard.events({
 	"click .moveToSide": function(event) {
 		var $this = event.target || event.srcElement;
 		var cardindex = $($this).parent().parent().data('id');
-		console.log(cardindex);
-		console.log(currentDeck);
 		currentDeck.sideboard.push(currentDeck.mainboard[cardindex]);
 		currentDeck.mainboard.splice(cardindex, 1);	//remove from mainboard
 		Decks.update(currentDeck._id, currentDeck);

@@ -10,7 +10,6 @@ draftSetupRoute = function() {
 			Session.set("route", "draftsetup");
 		},
 		data: function() {
-			console.log(Meteor.user());
 			return {
 				sets: Sets.find().fetch(),
 				num_of_packs: 3,

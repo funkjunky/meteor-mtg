@@ -3,7 +3,6 @@ Handlebars.registerHelper('each_w_index', function(context, options) {
 		return;
 
 	var ret = "";
-	console.log(context);
 	for(var i = 0; i != context.length; ++i)
 	{
 		context[i]._index = i;

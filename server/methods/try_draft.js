@@ -1,8 +1,6 @@
 Meteor.methods({
 	try_draft: function(draftid, withbots) {
 		var draft = Drafts.findOne({id: draftid});
-		console.log("trying draft...");
-
 		draft.status = "starting";
 		draft.withbots = withbots;
 

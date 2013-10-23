@@ -6,8 +6,6 @@ Meteor.startup(function() {
 		if(Session.get('route') != "draftlobby")
 			return null;
 
-		console.log('draftid: ' + Session.get('draftid'));
-
 		Meteor.call("leaving_draft", Session.get('draftid'), function(){});
 		return null;
 		//return "Are you sure you want to leave the lobby?";

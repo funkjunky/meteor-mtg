@@ -1,16 +1,16 @@
 Meteor todo:
 ---
-*critical bug fixing*
-***
-
- - remove all console.logs
- - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
- - release! Tomorrow. Then test the release again. Then post about it on FB and everywhere.
+ - read unofficial meteor FAQ and get more TODO items
+ - add everything new as bugs or features to redmine
+ - if there are important bugs, then do them
+ - merge to master and dev, then redeploy to meteor
+ - start a new version number, and add the features to this TODO 
  - add a button to draft pool cards to hide them as a button below the other cards. or some way to hide cards.
  - add in the ability to see the other draft players decks
  - back button doesnt leave lobby... i should make a bug list =P
  - unique chat room per drafts
  - do draft lobby header better... try and figure out how to get the data into the :after header peice.
+ - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
  - the filters won't work on multicoloured cards... change it so the card has the class of every colour identity it has. hmmm or not... think of a better way. maybe an attribute that marks it as multicolor. i dunno... this is tricky...
  - make the builder cards much more convinient to use.
  - hovering over image in draft should create the pointer cursor
