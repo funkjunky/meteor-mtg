@@ -3,17 +3,17 @@
 		<div id="deckmoddiv" class="span12 inset_header">
 		 <div class="row"> <!-- necessary for grid system... :( -->
 			<div id="visualmoddiv" class="span8">
-				<h2>mainboard</h2>
+				<h2>Mainboard - {{deck.mainboard.length}} cards</h2>
 				{{#with deck.mainboard}}
 					{{> board}}
 				{{/with}}
 				<hr />
-				<h2>side</h2>
+				<h2>Sideboard - {{deck.sideboard.length}} cards</h2>
 				{{#with deck.sideboard}}
 					{{> board}}
 				{{/with}}
 				<hr />
-				<h2>pool</h2>
+				<h2>Pool - {{deck.pool.length}}</h2>
 				{{#with deck.pool}}
 					{{> board}}
 				{{/with}}

@@ -1,6 +1,5 @@
 Meteor todo:
 ---
- - add readonly feature to redmine
  - put all global collection variables into a "collections" directory.
 		- try and important one, then test it, because im afraid certain things might load before the collection loads.
 		- put publish functions into each one, using the server clause or whatever.

@@ -1,9 +1,9 @@
 deckRoute = function() {
 	this.route('deck', {
-		path: '/deck/:deckname',
+		path: '/deck/:owner/:deckname',
 		waitOn: function() {
 			return [
-				Meteor.subscribe('Decks', this.params.deckname)
+				Meteor.subscribe('RODecks', this.params.owner, this.params.deckname)
 			];
 		},
 		onAfterRun: function() {
@@ -11,7 +11,7 @@ deckRoute = function() {
 		},
 		data: function() {
 			return {
-				deck: Decks.findOne({name: this.params.deckname}),
+				deck: Decks.findOne({owner: this.params.owner, name: this.params.deckname}),
 			};
 		},
 	});
