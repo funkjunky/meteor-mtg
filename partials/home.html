@@ -25,4 +25,7 @@
 			{{/each}}
 		</div>
 	{{/if}}
+	{{#not currentUser}}
+	<h1>You Must be logged in to do most of anything... Registration is easy and doesn't even require verification. Please use the button on the topright to login or register so you can start doing drafts and sealeds.</h1>
+	{{/not}}
 </template>
