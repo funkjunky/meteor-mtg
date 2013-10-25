@@ -26,4 +26,5 @@ Router.map(function() {
 	deckRoute.apply(this);
 	viewLogsRoute.apply(this);
 	viewFeedbacksRoute.apply(this);
+	draftSummaryRoute.apply(this);
 });

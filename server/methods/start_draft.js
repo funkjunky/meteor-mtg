@@ -34,7 +34,7 @@ Meteor.methods({
 			var user_deck_name = "" + name; //i dont know if the "" is necessary
 			if((name_count = Decks.find({name: new RegExp(name)}).count()) > 0)
 				user_deck_name += "_" + (name_count+1);
-			Decks.insert({
+			var deckid = Decks.insert({
 				name: user_deck_name,
 				owner: draft.players[i],
 				seat: i,
@@ -44,6 +44,15 @@ Meteor.methods({
 				draft: true,
 				draftid: draft.id,
 				draftinprogress: true,
+			});
+		
+			//Create draftstats
+			Draftstats.insert({
+				draftid: draft.id,
+				player: draft.players[i],
+				seat: i,
+				picks: [],
+				deckid: deckid,
 			});
 		}
 

@@ -1,0 +1,10 @@
+<template name="draftsummary">
+<h1>Draft Summary</h1>
+<div>
+	<p>ID: {{draft.id}}</p>
+	<p>Packs: {{#each draft.packs}}{{this}}{{/each}}</p>
+</div>
+<div>
+	{{draftstats_table draftstats}}
+</div>
+</template>
