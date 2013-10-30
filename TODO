@@ -1,15 +1,18 @@
 Meteor todo:
 ---
- - order the cards in the draft pack picks by rarity.
- - in draft summary, when a card is highlight, highlight all cards from that pack! This could be a super neat feature.
  - use task manager to see how much ram is being taken.. i worry it may be ridiculous amounts.
+ - foil indication feature
+ - add basic lands feature in deckbuilder.
  - Add a partial for having a card be a button, and add the hover event to show an img tag where the cursor is, of the card in question.
  - add a clone button on the /deck/owner/name page. It will make the exact same named deck under the current user... but if it already exists, then increment count as usual... I should probably put that thing in a function or something... perhaps a deny on inserting.
  - back button doesnt leave lobby...
  - the filters won't work on multicoloured cards... change it so the card has the class of every colour identity it has. hmmm or not... think of a better way. maybe an attribute that marks it as multicolor. i dunno... this is tricky...
  - hovering over image in draft should create the pointer cursor
+ - add sorting options [colour, type, whatever]
  - Release! But still don't mention the drafter.
 	- post comment on my facebook post, mention all t he things I've fixed. Reference redmine.
+ - in draft summary, when a card is highlight, highlight all cards from that pack! This could be a super neat feature.
+ - release again specifying what was updated on FB
  - address the atrocious code I've created...
 	 - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
 		-remove all the things in global.js

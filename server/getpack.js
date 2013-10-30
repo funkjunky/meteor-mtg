@@ -44,7 +44,15 @@ getpack = function(set, random)
 			taken[random_card.id] = true;
 		}
 	}
-	return cards;
+	//my method of sorting by rarity... i dont know why...
+	var sorted = [];
+	var rarities = ['M', 'R', 'U', 'C'];
+	for(var i=0; i!=rarities.length; ++i)
+		for(var k=0; k!=cards.length; ++k)
+			if(cards[k].rarity == rarities[i])
+				sorted.push(cards[k]);
+
+	return sorted;
 };
 
 rand_int = function(max, min)
