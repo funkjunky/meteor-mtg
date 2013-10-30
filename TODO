@@ -1,7 +1,5 @@
 Meteor todo:
 ---
- - use task manager to see how much ram is being taken.. i worry it may be ridiculous amounts.
- - foil indication feature
  - add basic lands feature in deckbuilder.
  - Add a partial for having a card be a button, and add the hover event to show an img tag where the cursor is, of the card in question.
  - add a clone button on the /deck/owner/name page. It will make the exact same named deck under the current user... but if it already exists, then increment count as usual... I should probably put that thing in a function or something... perhaps a deny on inserting.

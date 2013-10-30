@@ -14,7 +14,7 @@ getpack = function(set, random)
 	var set = Sets.findOne({name: set}).cards;
 
 	//roll to seeif this pack contains a foil
-	var has_foil = rand_int(3) == 0; //1:65
+	var has_foil = rand_int(65) == 0; //1:65
 	var has_mythic = rand_int(8) == 0; //1:8
 
 	//change the rare slot to a mythic slot
