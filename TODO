@@ -1,6 +1,5 @@
 Meteor todo:
 ---
- - add basic lands feature in deckbuilder.
  - Add a partial for having a card be a button, and add the hover event to show an img tag where the cursor is, of the card in question.
  - add a clone button on the /deck/owner/name page. It will make the exact same named deck under the current user... but if it already exists, then increment count as usual... I should probably put that thing in a function or something... perhaps a deny on inserting.
  - back button doesnt leave lobby...
@@ -12,6 +11,8 @@ Meteor todo:
  - in draft summary, when a card is highlight, highlight all cards from that pack! This could be a super neat feature.
  - release again specifying what was updated on FB
  - address the atrocious code I've created...
+	 - add stdlib function from underscore???? I need better code! @.@
+			- use in cases of dealing with lists, like colour sorting and such
 	 - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
 		-remove all the things in global.js
 		- try and ensure we dont use anymore global variables, collections could potentially be the exception.

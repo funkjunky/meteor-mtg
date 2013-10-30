@@ -6,6 +6,7 @@ builderRoute = function() {
 		waitOn: function() {
 			return [
 				Meteor.subscribe('Decks', this.params._id),
+				Meteor.subscribe('Sets', 'THS'),
 			];
 		},
 		onAfterRun: function() {
@@ -17,6 +18,15 @@ builderRoute = function() {
 			currentDeck = Decks.findOne({_id: this.params._id});
 			//TODO: do i actually need this? where? why?>
 			_deckname = currentDeck.name;
+
+			//get basic lands
+			basic_lands = {};
+			var m14 = Sets.findOne({name: 'THS'});
+			for(var i=0; i!=m14.cards.length; ++i)
+				if(is_basic_land(m14.cards[i]))
+					basic_lands[m14.cards[i].name] = m14.cards[i];
+			//
+			
 			if(currentDeck.owner != Meteor.user().username)
 			{
 				alert("This isn't your deck! Go to readonly mode!");
@@ -48,8 +58,16 @@ builderRoute = function() {
 					newpool.push(colours[k][i]);
 			currentDeck.pool = newpool;
 
+			//Deck info
+			var deck_info = {};
+			deck_info.lands = {Forest: 0, Plains: 0, Mountain: 0, Island: 0, Swamp: 0};
+			for(var i=0; i!=currentDeck.mainboard.length; ++i)
+				if(is_basic_land(currentDeck.mainboard[i]))
+					++deck_info.lands[currentDeck.mainboard[i].name];
+
 			return {
 				deck: currentDeck,
+				deck_info: deck_info,
 			};
 		},
 	});
@@ -96,4 +114,30 @@ Template.builder.created = function() {
 			currentDeck.name = $($this).val();
 			Decks.update(currentDeck._id, currentDeck);
 		},
+		"click .addland": function(event) {
+			var $this = event.target || event.srcElement;
+			currentDeck.mainboard.push(basic_lands[$($this).parent().data('landname')]);
+			Decks.update(currentDeck._id, currentDeck);
+		},
+		"click .removeland": function(event) {
+			var $this = event.target || event.srcElement;
+			var mainboard = currentDeck.mainboard;
+			for(var i=0; i!= mainboard.length; ++i)
+				if(mainboard[i].name == $($this).parent().data('landname'))
+				{
+					mainboard.splice(i, 1);
+					break;
+				}
+
+			Decks.update(currentDeck._id, currentDeck);
+		},
 	});
+
+function is_basic_land(card)
+{
+	return card.name == "Forest"
+		|| card.name == "Island"
+		|| card.name == "Mountain"
+		|| card.name == "Swamp"
+		|| card.name == "Plains";
+}
