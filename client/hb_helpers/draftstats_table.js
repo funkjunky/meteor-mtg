@@ -21,7 +21,7 @@ Handlebars.registerHelper('draftstats_table', function(arr, options) {
 	{
 		str += "<tr>\n";
 		for(var key in rows[i])
-			str += "<td>" + rows[i][key] + "</td>";
+			str += "<td class='textcard'>" + rows[i][key] + "</td>";
 		str += "</tr>\n";
 	}
 	str += "</tbody>\n";
