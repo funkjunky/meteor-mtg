@@ -1,9 +1,9 @@
  <template name="visualpool">
-				<div id="visualPoolBoard">
-				{{#each_w_index deck.pool}}
+				<div id="visualpool">
+				{{#sort_by_category board=deck.pool category=category}}
 					{{#labelBranch id "pool"}}
 						{{> poolcard}}
 					{{/labelBranch}}
-				{{/each_w_index}}
+				{{/sort_by_category}}
 				</div>
  </template>

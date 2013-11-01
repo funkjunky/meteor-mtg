@@ -65,9 +65,12 @@ builderRoute = function() {
 				if(is_basic_land(currentDeck.mainboard[i]))
 					++deck_info.lands[currentDeck.mainboard[i].name];
 
+			Session.setDefault("category", "none");
+
 			return {
 				deck: currentDeck,
 				deck_info: deck_info,
+				category: function() { return Session.get('category'); },
 			};
 		},
 	});
@@ -131,7 +134,13 @@ Template.builder.created = function() {
 
 			Decks.update(currentDeck._id, currentDeck);
 		},
+		"change [name=categoryRadios]": function(event) {
+			var $this = event.target || event.srcElement;
+			
+			Session.set('category', $this.value);
+		},
 	});
+
 
 function is_basic_land(card)
 {
