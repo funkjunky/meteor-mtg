@@ -3,39 +3,11 @@
 		<div id="deckmoddiv" class="span12 inset_header">
 		 <div class="row"> <!-- necessary for grid system... :( -->
 			<div id="visualmoddiv" class="span8">
-				<h2>Filters</h2>
-				<div class="builderfilters form-inline">
-					<p>(The keys corresponding to the colours are shortcuts to the filters)</p>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="U" />
-						<span>Blue</span>
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="B" />
-						<span>Black</span>
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="W" />
-						<span>White</span>
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="R" />
-						<span>Red</span>
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="G" />
-						<span>Green</span>
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="A" />
-						<span>Artifact</span>
-					</label>
-					<label class="checkbox">
-						<input type="checkbox" checked="checked" id="L" />
-						<span>Land</span>
-					</label>
-				</div>
-				<label for="stacked" class="checkbox">Stack Cards<input type="checkbox" id="stacked"></label>
+				 <div class="row" style="margin-left: 30px;"> <!-- necessary for grid system... :( -->
+			<div id="visualmoddiv" class="span12">
+				<input class="input-large" type="text" value="{{deck.name}}" id="deckname" />
+				<button type="button" id="clonedeck">Clone</button>
+				{{> controls}}
 				<hr />
 				<h2>Mainboard - {{deck.mainboard.length}} cards</h2>
 				{{> visualmainboard}}
@@ -46,9 +18,12 @@
 				<h2>Pool - {{deck.pool.length}}</h2>
 				{{> visualpool}}
 			</div>
+		</div>
+	</div>
 			<div id="textboard" class="span4">
 				{{> textboard}}
 			</div>
+		</div>
 		 </div>
 		 <button>save</button>
 		</div>

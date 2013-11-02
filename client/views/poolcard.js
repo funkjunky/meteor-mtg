@@ -20,6 +20,7 @@ Template.poolcard.events({
 });
 
 function toMainboard(event, context) {
+	console.log("tomainboard");
 		var $this = event.target || event.srcElement;
 		var cardindex = $($this).parent().parent().data('id');
 		if(!currentDeck.pool[cardindex])

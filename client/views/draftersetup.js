@@ -8,6 +8,7 @@ draftSetupRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "draftsetup");
+			document.title = "MTG Drafter - Draft Setup";
 		},
 		data: function() {
 			return {

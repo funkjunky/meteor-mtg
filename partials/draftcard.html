@@ -1,6 +1,7 @@
 <template name="draftcard">
-{{#if foil}}*foil*{{/if}}
+{{#if foil}}<div style="display:inline-block; border: solid 2px purple; background-color:purple;"><div style="color: white;">Foil</div>{{/if}}
 	<div style="display:inline-block" data-id="{{_index}}">
 	{{> card}}
 	</div>
+{{#if foil}}</div>{{/if}}
 </template>

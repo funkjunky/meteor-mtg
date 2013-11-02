@@ -1,29 +1,34 @@
 Meteor todo:
 ---
- - read unofficial meteor FAQ and get more TODO items
- - add everything new as bugs or features to redmine
- - if there are important bugs, then do them
- - merge to master and dev, then redeploy to meteor
- - start a new version number, and add the features to this TODO 
- - add a button to draft pool cards to hide them as a button below the other cards. or some way to hide cards.
- - add in the ability to see the other draft players decks
- - back button doesnt leave lobby... i should make a bug list =P
- - unique chat room per drafts
- - do draft lobby header better... try and figure out how to get the data into the :after header peice.
- - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
- - the filters won't work on multicoloured cards... change it so the card has the class of every colour identity it has. hmmm or not... think of a better way. maybe an attribute that marks it as multicolor. i dunno... this is tricky...
- - make the builder cards much more convinient to use.
+
+ - merge with rc and do bug fixes on rc
+ - for multicolored cards, make sure their class isn't "red white" it's "redwhite"... this way it will neither be turned on or off by the filter.
  - hovering over image in draft should create the pointer cursor
- - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
+ - back button doesnt leave lobby...
+ - Release! But still don't mention the drafter.
+	- post comment on my facebook post, mention all t he things I've fixed. Reference redmine.
+ - switch from cardimage to text in builder
+ - in draft summary, when a card is highlight, highlight all cards from that pack! This could be a super neat feature.
+ - release again specifying what was updated on FB
  - address the atrocious code I've created...
- - address any performance issues that may exist. As well as any recent feedback.
+	- fix vim indenting it's bad... for both html and js
+	 - add stdlib function from underscore???? I need better code! @.@
+			- use in cases of dealing with lists, like colour sorting and such
+	 - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
+		-remove all the things in global.js
+		- try and ensure we dont use anymore global variables, collections could potentially be the exception.
+	 - consider using "yeilds" form iron router, instead of partials from handlebars
+ - Make the builder much more convinient somehow.
+	- maybe have a visual layout of the cards, and the location of each card is saved?
+ - unique chat room per drafts
  - event assignments should be in the onAfterRun of the router, so we don't add all events no matter the route.
  - setting the route session variable should be done in m-m.js, instead of every route.
+ - address any performance issues that may exist. As well as any recent feedback.
  - better security
- - consider using "yeilds" form iron router, instead of partials from handlebars
- - clean up code.
- - fix deck builder... not sure how...
- - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...
+
+ - Get drafter on heroku
+	 - for non-draft and sealed decks, there should be an infinite pool. [keep in mind later, there will likely be an EDH resitrction as well, where they can add any ONE card]
+	 - Try doing a blank meteor project with some sample data and deploying to heroku. If it doesn't work, then ask on SO about it and post the issue on the github.
 
 *future*
 	- consider, having the pool be a reference, so we can reuse "standard", etc.

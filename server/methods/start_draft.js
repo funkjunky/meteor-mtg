@@ -2,7 +2,7 @@ Meteor.methods({
 	start_draft: function(draftid) {
 		var draft = Drafts.findOne({id: draftid});
 		var date = new Date();
-		var name = "_draft-" + date.getDate() + "_" + (date.getMonth()+1) + "_" + date.getFullYear() + "_" + implode(draft.packs, "-") + "_" + Date.now();
+		var name = "draft_" + implode(draft.packs, "-") + "_" + date.getDate() + "-" + (date.getMonth()+1) + "-" + date.getFullYear();
 
 		//fill in the bots
 		if(draft.withbots)
@@ -29,8 +29,13 @@ Meteor.methods({
 
 		//give all the players their deck for the draft
 		for(var i=0; i!=draft.players.length; ++i)
-			Decks.insert({
-				name: draft.players[i] + name,
+		{
+			var name_count;
+			var user_deck_name = "" + name; //i dont know if the "" is necessary
+			if((name_count = Decks.find({name: new RegExp(name)}).count()) > 0)
+				user_deck_name += "_" + (name_count+1);
+			var deckid = Decks.insert({
+				name: user_deck_name,
 				owner: draft.players[i],
 				seat: i,
 				mainboard: [],
@@ -40,6 +45,16 @@ Meteor.methods({
 				draftid: draft.id,
 				draftinprogress: true,
 			});
+		
+			//Create draftstats
+			Draftstats.insert({
+				draftid: draft.id,
+				player: draft.players[i],
+				seat: i,
+				picks: [],
+				deckid: deckid,
+			});
+		}
 
 		//create a log for each seat
 		for(var i=0; i!=draft.players.length; ++i)

@@ -5,6 +5,12 @@ Meteor.methods({
 		var pickdraftcard = function(pack, deck, index)
 		{
 			var card = pack.cards[index];
+			//Draftstats////
+			Draftstats.update(
+				{draftid: draftid, seat: pack.seat},
+				{$push: {picks: card.name}}
+			);
+			////////////////
 
 			//add the card to the users deck
 			deck.sideboard.push(card);

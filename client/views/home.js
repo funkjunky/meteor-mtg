@@ -12,6 +12,7 @@ homeRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "home");
+			document.title = "MTG Drafter - Home";
 		},
 		data: function() {
 			var data = {

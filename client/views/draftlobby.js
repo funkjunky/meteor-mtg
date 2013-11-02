@@ -21,12 +21,19 @@ draftLobbyRoute = function() {
 		},
 		onAfterRun: function() {
 			Session.set("route", "draftlobby");
+			document.title = "MTG Drafter - Draft Lobby";
 		},
 		data: function() {
 			Session.set('draftid', parseInt(this.params.draftid));
 			var user = Meteor.user();
 			var draftCursor = Drafts.find({id: parseInt(this.params.draftid)});
 			var draft = draftCursor.fetch()[0];
+			var title = "MTG Drafter - ";
+			for(var i=0; i!=draft.packs.length; ++i)
+				title += "["+draft.packs[i]+"]";
+			title += " Draft Lobby";
+			document.title = title;
+
 			draftCursor.observeChanges({
 				changed: function(id, fields) {
 					if(fields.status == "starting")

@@ -1,3 +1,4 @@
+//TODO: If this works, then fix each_w_index... because it currently mutates the object... whne it shouldnt!
 Handlebars.registerHelper('each_w_index', function(context, options) {
 	if(!context)
 		return;

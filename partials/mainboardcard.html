@@ -1,13 +1,15 @@
 <template name="mainboardcard">
-	<div data-id="{{_index}}" class="cardchoice {{id}} {{color}}">
+	<div data-id="{{_index}}" class="mainboard{{_index}} cardchoice {{id}} {{color}}">
 		<h3 class="instanceCount"></h3>
+		<div style="display:inline-block;">
 		{{> card}}
-		<div class="builderbuttons">
+		</div>
+		<div style="vertical-align: top;"class="btn-group-vertical">
 			{{#if unlimitedPool}}
-			 <button class="addToMain">+1 Main <span class="x_main">(n)</span></button>
+			 <button class="btn addToMain">+1<span class="x_main">(n)</span></button>
 			{{/if}}
-			<button class="moveToSide">Side -&gt;<span class="x_side">(n)</span></button>
-			<button class="removeFromMain">-1 Main</button>
+			<button class="btn moveToSide">-&gt;</button>
+			<button class="btn removeFromMain">-1</button>
 		</div>
 	</div>
 </template>

@@ -11,6 +11,7 @@ drafterRoute = function() {
 			];
 		},
 		onAfterRun: function() {
+			document.title = "MTG Drafter - Drafting";
 		},
 		data: function() {
 			Session.set('draftid', parseInt(this.params.draftid));
@@ -28,7 +29,8 @@ drafterRoute = function() {
 			//TODO: use the deck var everywhere... wtf?
 			var deck = Decks.findOne({owner: Meteor.user().username, draftid: draftid});
 			if(draft.status == "finished")
-				Router.go("/builder/"+deck.name);
+				Router.go("/draftsummary/"+draftid);
+				//Router.go("/builder/"+deck.name);
 
 			deck.sideboard = sortcolours(deck.sideboard);
 
