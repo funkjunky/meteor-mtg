@@ -3,100 +3,11 @@
 		<div id="deckmoddiv" class="span12 inset_header">
 		 <div class="row"> <!-- necessary for grid system... :( -->
 			<div id="visualmoddiv" class="span8">
+				 <div class="row" style="margin-left: 30px;"> <!-- necessary for grid system... :( -->
+			<div id="visualmoddiv" class="span12">
 				<input class="input-large" type="text" value="{{deck.name}}" id="deckname" />
-			 <div class="row" style="margin-left: 20px;"> <!-- necessary for grid system... :( -->
-				<div class="span6">
-					<h2>Filters</h2>
-					<div class="builderfilters form-inline">
-						<p>(u, b, w, r, g, a, l are relative shortcuts to the filters)</p>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="U" />
-							<span>Blue</span>
-						</label>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="B" />
-							<span>Black</span>
-						</label>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="W" />
-							<span>White</span>
-						</label>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="R" />
-							<span>Red</span>
-						</label>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="G" />
-							<span>Green</span>
-						</label>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="A" />
-							<span>Artifact</span>
-						</label>
-						<label class="checkbox">
-							<input type="checkbox" checked="checked" id="L" />
-							<span>Land</span>
-						</label>
-					</div>
-					<label for="stacked" class="checkbox">Stack Cards<input type="checkbox" id="stacked"></label>
-					<h2>Categories</h2>
-					<label class="radio inline">
-						<input type="radio" name="categoryRadios" value="none" selected>
-						None
-					</label>
-					<label class="radio inline">
-						<input type="radio" name="categoryRadios" value="cardtype">
-						Type
-					</label>
-					<label class="radio inline">
-						<input type="radio" name="categoryRadios" value="rarity">
-						Rarity
-					</label>
-					<label class="radio inline">
-						<input type="radio" name="categoryRadios" value="convertedmanacost">
-						Cost
-					</label>
-				</div>
-				<div class="span6">
-					<h2>Add Lands</h2>
-					<div style="display: inline-block; max-width: 70px;">
-						<input type="text" class="span4" value="{{deck_info.lands.Plains}}" />
-						<div class="btn-group-vertical" data-landname="Plains">
-
-							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
-							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
-						</div>
-					</div>
-					<div style="display: inline-block; max-width: 70px;">
-						<input style="background-color: red; color: white;" type="text" class="span4" value="{{deck_info.lands.Mountain}}" />
-						<div class="btn-group-vertical" data-landname="Mountain">
-							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
-							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
-						</div>
-					</div>
-					<div style="display: inline-block; max-width: 70px;">
-						<input style="background-color: green; color: white;" type="text" class="span4" value="{{deck_info.lands.Forest}}" />
-						<div class="btn-group-vertical" data-landname="Forest">
-							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
-							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
-						</div>
-					</div>
-					<div style="display: inline-block; max-width: 70px;">
-						<input style="background-color: blue; color: white;" type="text" class="span4" value="{{deck_info.lands.Island}}" />
-						<div class="btn-group-vertical" data-landname="Island">
-							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
-							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
-						</div>
-					</div>
-					<div style="display: inline-block; max-width: 70px;">
-						<input style="background-color: black; color: white;" type="text" class="span4" value="{{deck_info.lands.Swamp}}" />
-						<div class="btn-group-vertical" data-landname="Swamp">
-							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
-							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
-						</div>
-					</div>
-				</div>
-			</div>
+				<button type="button" id="clonedeck">Clone</button>
+				{{> controls}}
 				<hr />
 				<h2>Mainboard - {{deck.mainboard.length}} cards</h2>
 				{{> visualmainboard}}
@@ -107,9 +18,12 @@
 				<h2>Pool - {{deck.pool.length}}</h2>
 				{{> visualpool}}
 			</div>
+		</div>
+	</div>
 			<div id="textboard" class="span4">
 				{{> textboard}}
 			</div>
+		</div>
 		 </div>
 		 <button>save</button>
 		</div>

@@ -1,7 +1,7 @@
 Meteor todo:
 ---
 
- - add a clone button on the /deck/owner/name page. It will make the exact same named deck under the current user... but if it already exists, then increment count as usual... I should probably put that thing in a function or something... perhaps a deny on inserting.
+ - merge with rc and do bug fixes on rc
  - for multicolored cards, make sure their class isn't "red white" it's "redwhite"... this way it will neither be turned on or off by the filter.
  - hovering over image in draft should create the pointer cursor
  - back button doesnt leave lobby...
@@ -11,6 +11,7 @@ Meteor todo:
  - in draft summary, when a card is highlight, highlight all cards from that pack! This could be a super neat feature.
  - release again specifying what was updated on FB
  - address the atrocious code I've created...
+	- fix vim indenting it's bad... for both html and js
 	 - add stdlib function from underscore???? I need better code! @.@
 			- use in cases of dealing with lists, like colour sorting and such
 	 - I need to use requireJS or something... the order of JS being loaded is a problem and the global variables everywhere is very bad...

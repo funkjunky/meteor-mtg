@@ -139,6 +139,14 @@ Template.builder.created = function() {
 			
 			Session.set('category', $this.value);
 		},
+		"click #clonedeck": function(event) {
+			Meteor.call("clonedeck", currentDeck._id, function(err, res) {
+				console.log("done meteor.method 'clonedeck'");
+				console.log(err);
+				console.log(res);
+				Router.go(res);
+			});
+		},
 	});
 
 

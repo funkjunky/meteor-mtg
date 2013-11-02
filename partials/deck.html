@@ -3,6 +3,12 @@
 		<div id="deckmoddiv" class="span12 inset_header">
 		 <div class="row"> <!-- necessary for grid system... :( -->
 			<div id="visualmoddiv" class="span8">
+				 <div class="row" style="margin-left: 30px;"> <!-- necessary for grid system... :( -->
+					 <div class="span12">
+				 <h2>{{deck.name}}</h2>
+				 {{#if currentUser}}
+				 	<button type="button" id="clonedeck">Clone</button>
+				{{/if}}
 				<h2>Mainboard - {{deck.mainboard.length}} cards</h2>
 				{{#with deck.mainboard}}
 					{{> board}}
@@ -18,6 +24,8 @@
 					{{> board}}
 				{{/with}}
 			</div>
+		</div>
+	</div>
 			<div id="textboard" class="span4">
 				<textarea rows="8" class="input-block-level textualMainBoard" readonly data-board="mainboard">{{deckToText deck.mainboard}}</textarea><br />
 				<textarea rows="8" class="input-block-level textualSideBoard" readonly data-board="sideboard">{{deckToText deck.sideboard}}</textarea><br />

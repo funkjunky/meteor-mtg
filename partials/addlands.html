@@ -1,0 +1,39 @@
+<template name="addlands">
+					<h2>Add Lands</h2>
+					<div style="display: inline-block; max-width: 70px;">
+						<input type="text" class="span4" value="{{deck_info.lands.Plains}}" />
+						<div class="btn-group-vertical" data-landname="Plains">
+
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
+						</div>
+					</div>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: red; color: white;" type="text" class="span4" value="{{deck_info.lands.Mountain}}" />
+						<div class="btn-group-vertical" data-landname="Mountain">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
+						</div>
+					</div>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: green; color: white;" type="text" class="span4" value="{{deck_info.lands.Forest}}" />
+						<div class="btn-group-vertical" data-landname="Forest">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
+						</div>
+					</div>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: blue; color: white;" type="text" class="span4" value="{{deck_info.lands.Island}}" />
+						<div class="btn-group-vertical" data-landname="Island">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
+						</div>
+					</div>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: black; color: white;" type="text" class="span4" value="{{deck_info.lands.Swamp}}" />
+						<div class="btn-group-vertical" data-landname="Swamp">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
+						</div>
+					</div>
+</template>
