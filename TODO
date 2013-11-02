@@ -1,10 +1,8 @@
 Meteor todo:
 ---
 
- - merge with rc and do bug fixes on rc
- - for multicolored cards, make sure their class isn't "red white" it's "redwhite"... this way it will neither be turned on or off by the filter.
- - hovering over image in draft should create the pointer cursor
  - back button doesnt leave lobby...
+ - double check live site feedback... if there is anything knew maybe note it... otherwise try and clear it? hmm.....
  - Release! But still don't mention the drafter.
 	- post comment on my facebook post, mention all t he things I've fixed. Reference redmine.
  - switch from cardimage to text in builder

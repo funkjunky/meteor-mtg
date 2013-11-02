@@ -8,6 +8,10 @@
 	width:150px;
 	height:220px;
 }
+#currentPick .cardimage
+{
+	cursor: pointer;
+}
 .cardtext
 {
 	display:none;
