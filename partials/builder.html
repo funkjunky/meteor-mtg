@@ -8,7 +8,7 @@
 				<div class="span6">
 					<h2>Filters</h2>
 					<div class="builderfilters form-inline">
-						<p>(The keys corresponding to the colours are shortcuts to the filters)</p>
+						<p>(u, b, w, r, g, a, l are relative shortcuts to the filters)</p>
 						<label class="checkbox">
 							<input type="checkbox" checked="checked" id="U" />
 							<span>Blue</span>
@@ -59,44 +59,40 @@
 				</div>
 				<div class="span6">
 					<h2>Add Lands</h2>
-					<div style="background-color: white; display:inline-block" class="input-prepend input-append">
-						<span class="add-on">W</span>
-						<input type="text" class="span2" value="{{deck_info.lands.Plains}}" />
-						<div class="add-on btn-group btn-group-vertical" data-landname="Plains">
-							<button class="btn addland" type="button">+</button>
-							<button class="btn removeland" type="button">-</button>
+					<div style="display: inline-block; max-width: 70px;">
+						<input type="text" class="span4" value="{{deck_info.lands.Plains}}" />
+						<div class="btn-group-vertical" data-landname="Plains">
+
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
 						</div>
 					</div>
-					<div class="input-prepend input-append">
-						<span class="add-on">R</span>
-						<input style="background-color: red; color: white;" type="text" class="span2" value="{{deck_info.lands.Mountain}}" />
-						<div class="add-on btn-group btn-group-vertical" data-landname="Mountain">
-							<button class="btn addland" type="button">+</button>
-							<button class="btn removeland" type="button">-</button>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: red; color: white;" type="text" class="span4" value="{{deck_info.lands.Mountain}}" />
+						<div class="btn-group-vertical" data-landname="Mountain">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
 						</div>
 					</div>
-					<div class="input-prepend input-append">
-						<span class="add-on">G</span>
-						<input style="background-color: green; color: white;" type="text" class="span2" value="{{deck_info.lands.Forest}}" />
-						<div class="add-on btn-group btn-group-vertical" data-landname="Forest">
-							<button class="btn addland" type="button">+</button>
-							<button class="btn removeland" type="button">-</button>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: green; color: white;" type="text" class="span4" value="{{deck_info.lands.Forest}}" />
+						<div class="btn-group-vertical" data-landname="Forest">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
 						</div>
 					</div>
-					<div class="input-prepend input-append">
-						<span class="add-on">U</span>
-						<input style="background-color: blue; color: white;" type="text" class="span2" value="{{deck_info.lands.Island}}" />
-						<div class="add-on btn-group btn-group-vertical" data-landname="Island">
-							<button class="btn addland" type="button">+</button>
-							<button class="btn removeland" type="button">-</button>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: blue; color: white;" type="text" class="span4" value="{{deck_info.lands.Island}}" />
+						<div class="btn-group-vertical" data-landname="Island">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
 						</div>
 					</div>
-					<div class="input-prepend input-append">
-						<span class="add-on">B</span>
-						<input style="background-color: black; color: white;" type="text" class="span2" value="{{deck_info.lands.Swamp}}" />
-						<div class="add-on btn-group btn-group-vertical" data-landname="Swamp">
-							<button class="btn addland" type="button">+</button>
-							<button class="btn removeland" type="button">-</button>
+					<div style="display: inline-block; max-width: 70px;">
+						<input style="background-color: black; color: white;" type="text" class="span4" value="{{deck_info.lands.Swamp}}" />
+						<div class="btn-group-vertical" data-landname="Swamp">
+							<button class="btn addland" type="button"><i class="icon-plus"></i></button>
+							<button class="btn removeland" type="button"><i class="icon-minus"></i></button>
 						</div>
 					</div>
 				</div>
